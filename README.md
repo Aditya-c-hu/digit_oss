@@ -458,3 +458,4 @@ Some Java capabilities are intentionally simplified or stubbed:
 
 These are clearly marked at the call sites and are easy to swap for HTTP clients
 to the real services in a production deployment.
+# Updated README
