@@ -1,0 +1,222 @@
+version: '3.8'
+
+services:
+  user-postgres:
+    image: postgres:15-alpine
+    container_name: user-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: rainmaker
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - "5433:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d rainmaker"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  user-redis:
+    image: redis:alpine
+    container_name: user-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+
+  user-kafka:
+    image: apache/kafka:3.7.0
+    container_name: user-kafka
+    restart: unless-stopped
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_LISTENERS: INTERNAL://:29092,EXTERNAL://:9092,CONTROLLER://:9093
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://user-kafka:29092,EXTERNAL://localhost:9092
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT,CONTROLLER:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@user-kafka:9093
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_LOG_DIRS: /tmp/kraft-combined-logs
+      CLUSTER_ID: "MkU3OEVBNTcwNTJENDM2Qk"
+
+  egov-mdms-service:
+    build:
+      context: ../egov-mdms-service
+      dockerfile: Dockerfile.local
+    container_name: egov-mdms-service
+    restart: unless-stopped
+    environment:
+      SERVER_PORT: "8094"
+      EGOV_MDMS_CONF_PATH: "/app/mdms-data/data"
+      MASTERS_CONFIG_URL: "file:///app/mdms-data/master-config.json"
+    volumes:
+      - ./mdms-data:/app/mdms-data:ro
+    ports:
+      - "8094:8094"
+
+  egov-enc-service:
+    build:
+      context: ../egov-enc-service
+      dockerfile: Dockerfile.local
+    container_name: egov-enc-service
+    restart: unless-stopped
+    depends_on:
+      user-postgres:
+        condition: service_healthy
+    environment:
+      SERVER_PORT: "8089"
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://user-postgres:5432/rainmaker"
+      SPRING_DATASOURCE_USERNAME: "postgres"
+      SPRING_DATASOURCE_PASSWORD: "postgres"
+      SPRING_FLYWAY_ENABLED: "true"
+      SPRING_FLYWAY_URL: "jdbc:postgresql://user-postgres:5432/rainmaker"
+      SPRING_FLYWAY_USER: "postgres"
+      SPRING_FLYWAY_PASSWORD: "postgres"
+      EGOV_MDMS_HOST: "http://egov-mdms-service:8094/"
+      MDMS_HOST: "http://egov-mdms-service:8094/"
+    ports:
+      - "8089:8089"
+
+  egov-user:
+    build:
+      context: ../egov-user
+      dockerfile: Dockerfile.local
+    container_name: egov-user
+    restart: unless-stopped
+    depends_on:
+      user-postgres:
+        condition: service_healthy
+      user-redis:
+        condition: service_started
+      user-kafka:
+        condition: service_started
+      egov-mdms-service:
+        condition: service_started
+      egov-enc-service:
+        condition: service_started
+    environment:
+      SERVER_PORT: "8081"
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://user-postgres:5432/rainmaker"
+      SPRING_DATASOURCE_USERNAME: "postgres"
+      SPRING_DATASOURCE_PASSWORD: "postgres"
+      SPRING_FLYWAY_ENABLED: "true"
+      SPRING_FLYWAY_URL: "jdbc:postgresql://user-postgres:5432/rainmaker"
+      SPRING_FLYWAY_USER: "postgres"
+      SPRING_FLYWAY_PASSWORD: "postgres"
+      FLYWAY_ENABLED: "true"
+      FLYWAY_URL: "jdbc:postgresql://user-postgres:5432/rainmaker"
+      FLYWAY_USER: "postgres"
+      FLYWAY_PASSWORD: "postgres"
+      SPRING_REDIS_HOST: "user-redis"
+      SPRING_REDIS_PORT: "6379"
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: "user-kafka:29092"
+      KAFKA_CONFIG_BOOTSTRAP_SERVER_CONFIG: "user-kafka:29092"
+      EGOV_ENC_HOST: "http://egov-enc-service:8089/"
+      EGOV_ENC_SIGN_HOST: "http://egov-enc-service:8089/"
+      EGOV_MDMS_HOST: "http://egov-mdms-service:8094/"
+      MDMS_HOST: "http://egov-mdms-service:8094/"
+    ports:
+      - "8081:8081"
+
+  property-services:
+    build:
+      context: ../property-services
+      dockerfile: Dockerfile.local
+    container_name: property-services
+    restart: unless-stopped
+    depends_on:
+      user-postgres:
+        condition: service_healthy
+      user-redis:
+        condition: service_started
+      user-kafka:
+        condition: service_started
+      egov-mdms-service:
+        condition: service_started
+      egov-enc-service:
+        condition: service_started
+      egov-user:
+        condition: service_started
+      egov-idgen:
+        condition: service_started
+      egov-location:
+        condition: service_started
+    environment:
+      SERVER_PORT: "8280"
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://user-postgres:5432/rainmaker"
+      SPRING_DATASOURCE_USERNAME: "postgres"
+      SPRING_DATASOURCE_PASSWORD: "postgres"
+      SPRING_FLYWAY_ENABLED: "true"
+      SPRING_FLYWAY_URL: "jdbc:postgresql://user-postgres:5432/rainmaker"
+      SPRING_FLYWAY_USER: "postgres"
+      SPRING_FLYWAY_PASSWORD: "postgres"
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: "user-kafka:29092"
+      KAFKA_CONFIG_BOOTSTRAP_SERVER_CONFIG: "user-kafka:29092"
+      EGOV_USER_HOST: "http://egov-user:8081/"
+      EGOV_ENC_HOST: "http://egov-enc-service:8089/"
+      EGOV_MDMS_HOST: "http://egov-mdms-service:8094/"
+      MDMS_HOST: "http://egov-mdms-service:8094/"
+      EGOV_IDGEN_HOST: "http://egov-idgen:8088/"
+      EGOV_LOCATION_HOST: "http://egov-location:8082/"
+    ports:
+      - "8280:8280"
+
+  egov-idgen:
+    build:
+      context: ../egov-idgen
+      dockerfile: Dockerfile.local
+    container_name: egov-idgen
+    restart: unless-stopped
+    depends_on:
+      user-postgres:
+        condition: service_healthy
+      egov-mdms-service:
+        condition: service_started
+    environment:
+      SERVER_PORT: "8088"
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://user-postgres:5432/rainmaker"
+      SPRING_DATASOURCE_USERNAME: "postgres"
+      SPRING_DATASOURCE_PASSWORD: "postgres"
+      SPRING_FLYWAY_ENABLED: "true"
+      SPRING_FLYWAY_URL: "jdbc:postgresql://user-postgres:5432/rainmaker"
+      SPRING_FLYWAY_USER: "postgres"
+      SPRING_FLYWAY_PASSWORD: "postgres"
+      SPRING_FLYWAY_BASELINE_ON_MIGRATE: "true"
+      SPRING_FLYWAY_IGNORE_MISSING_MIGRATIONS: "true"
+      MDMS_SERVICE_HOST: "http://egov-mdms-service:8094/"
+    ports:
+      - "8088:8088"
+
+  egov-location:
+    build:
+      context: ../egov-location
+      dockerfile: Dockerfile.local
+    container_name: egov-location
+    restart: unless-stopped
+    depends_on:
+      user-postgres:
+        condition: service_healthy
+      egov-mdms-service:
+        condition: service_started
+    environment:
+      SERVER_PORT: "8082"
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://user-postgres:5432/rainmaker"
+      SPRING_DATASOURCE_USERNAME: "postgres"
+      SPRING_DATASOURCE_PASSWORD: "postgres"
+      SPRING_FLYWAY_ENABLED: "true"
+      SPRING_FLYWAY_URL: "jdbc:postgresql://user-postgres:5432/rainmaker"
+      SPRING_FLYWAY_USER: "postgres"
+      SPRING_FLYWAY_PASSWORD: "postgres"
+      SPRING_FLYWAY_BASELINE_ON_MIGRATE: "true"
+      SPRING_FLYWAY_IGNORE_MISSING_MIGRATIONS: "true"
+      EGOV_SERVICES_EGOV_MDMS_HOSTNAME: "http://egov-mdms-service:8094/"
+      KAFKA_CONFIG_BOOTSTRAP_SERVER_CONFIG: "user-kafka:29092"
+    ports:
+      - "8082:8082"

@@ -1,0 +1,5 @@
+FROM eclipse-temurin:8-jre-alpine
+WORKDIR /app
+COPY target/property-services-1.2.1-beta-SNAPSHOT.jar app.jar
+EXPOSE 8280
+ENTRYPOINT ["java", "-jar", "app.jar"]

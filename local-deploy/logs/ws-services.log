@@ -1,0 +1,35 @@
+{"time":"2026-05-21T17:50:24.9489192+05:30","level":"WARN","msg":"kafka subscribe skipped: empty topic","group":"egov-ws-services"}
+{"time":"2026-05-21T17:50:24.9574535+05:30","level":"INFO","msg":"kafka consumer started","topic":"editnotification","group":"egov-ws-services"}
+{"time":"2026-05-21T17:50:24.9574535+05:30","level":"INFO","msg":"kafka consumer started","topic":"ws-filestoreids-process","group":"egov-ws-services"}
+{"time":"2026-05-21T17:50:24.9579665+05:30","level":"INFO","msg":"ws-services listening","addr":":8090","context":"/ws-services"}
+{"time":"2026-05-21T17:50:24.9599814+05:30","level":"INFO","msg":"kafka consumer started","topic":"update-ws-workflow","group":"egov-ws-services"}
+{"time":"2026-05-21T17:51:14.1679692+05:30","level":"INFO","msg":"http","method":"GET","path":"/health","status":200,"latency_ms":0}
+{"time":"2026-05-21T17:51:22.5939299+05:30","level":"INFO","msg":"http","method":"POST","path":"/ws-services/wc/_create","status":400,"latency_ms":888}
+{"time":"2026-05-21T17:51:22.6863909+05:30","level":"INFO","msg":"http","method":"POST","path":"/ws-services/wc/_search","status":200,"latency_ms":76}
+{"time":"2026-05-21T17:53:05.1397385+05:30","level":"INFO","msg":"http","method":"GET","path":"/health","status":200,"latency_ms":0}
+2026/05/21 17:53:09 ERROR request failed code=INTERNAL_SERVER_ERROR detail="idgen waterservice.application.id: empty response"
+{"time":"2026-05-21T17:53:09.9821957+05:30","level":"INFO","msg":"http","method":"POST","path":"/ws-services/wc/_create","status":500,"latency_ms":793}
+{"time":"2026-05-21T17:53:10.0111012+05:30","level":"INFO","msg":"http","method":"POST","path":"/ws-services/wc/_search","status":200,"latency_ms":16}
+{"time":"2026-05-21T17:54:38.1535942+05:30","level":"INFO","msg":"http","method":"GET","path":"/health","status":200,"latency_ms":0}
+2026/05/21 17:54:43 ERROR request failed code=EG_WS_WORKFLOW_ERROR detail="workflow transition failed: workflow transition failed: 400 "
+{"time":"2026-05-21T17:54:43.3119094+05:30","level":"INFO","msg":"http","method":"POST","path":"/ws-services/wc/_create","status":500,"latency_ms":1155}
+{"time":"2026-05-21T17:54:43.3352357+05:30","level":"INFO","msg":"http","method":"POST","path":"/ws-services/wc/_search","status":200,"latency_ms":9}
+{"time":"2026-05-21T17:56:22.3787385+05:30","level":"INFO","msg":"http","method":"GET","path":"/health","status":200,"latency_ms":0}
+2026/05/21 17:56:26 ERROR request failed code=EG_WS_WORKFLOW_ERROR detail="workflow transition failed: workflow transition failed: 400 "
+{"time":"2026-05-21T17:56:26.6799658+05:30","level":"INFO","msg":"http","method":"POST","path":"/ws-services/wc/_create","status":500,"latency_ms":333}
+{"time":"2026-05-21T17:56:26.7074357+05:30","level":"INFO","msg":"http","method":"POST","path":"/ws-services/wc/_search","status":200,"latency_ms":15}
+{"time":"2026-05-21T17:58:07.3837263+05:30","level":"INFO","msg":"http","method":"GET","path":"/health","status":200,"latency_ms":0}
+2026/05/21 17:58:11 ERROR request failed code=EG_WS_WORKFLOW_ERROR detail="workflow transition failed: workflow transition failed: 400 "
+{"time":"2026-05-21T17:58:11.5777804+05:30","level":"INFO","msg":"http","method":"POST","path":"/ws-services/wc/_create","status":500,"latency_ms":363}
+{"time":"2026-05-21T17:58:11.6107128+05:30","level":"INFO","msg":"http","method":"POST","path":"/ws-services/wc/_search","status":200,"latency_ms":14}
+{"time":"2026-05-21T18:02:00.901334+05:30","level":"INFO","msg":"http","method":"GET","path":"/health","status":200,"latency_ms":1}
+2026/05/21 18:02:08 ERROR request failed code=EG_WS_WORKFLOW_ERROR detail="workflow transition failed: workflow transition failed: 400 "
+{"time":"2026-05-21T18:02:08.6853162+05:30","level":"INFO","msg":"http","method":"POST","path":"/ws-services/wc/_create","status":500,"latency_ms":936}
+{"time":"2026-05-21T18:02:08.7538218+05:30","level":"INFO","msg":"http","method":"POST","path":"/ws-services/wc/_search","status":200,"latency_ms":55}
+{"time":"2026-05-21T18:03:14.164936+05:30","level":"INFO","msg":"http","method":"GET","path":"/health","status":200,"latency_ms":0}
+2026/05/21 18:03:18 ERROR request failed code=EG_WS_WORKFLOW_ERROR detail="workflow transition failed: workflow transition failed: 400 "
+{"time":"2026-05-21T18:03:18.9525364+05:30","level":"INFO","msg":"http","method":"POST","path":"/ws-services/wc/_create","status":500,"latency_ms":803}
+{"time":"2026-05-21T18:03:18.9744395+05:30","level":"INFO","msg":"http","method":"POST","path":"/ws-services/wc/_search","status":200,"latency_ms":10}
+{"time":"2026-05-21T18:04:21.6495471+05:30","level":"INFO","msg":"http","method":"GET","path":"/health","status":200,"latency_ms":0}
+{"time":"2026-05-21T18:04:26.4580043+05:30","level":"INFO","msg":"http","method":"POST","path":"/ws-services/wc/_create","status":200,"latency_ms":789}
+{"time":"2026-05-21T18:04:26.5162307+05:30","level":"INFO","msg":"http","method":"POST","path":"/ws-services/wc/_search","status":200,"latency_ms":38}

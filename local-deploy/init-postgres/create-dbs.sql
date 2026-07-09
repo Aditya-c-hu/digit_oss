@@ -1,0 +1,3 @@
+CREATE DATABASE devdb;
+CREATE DATABASE devdump;
+CREATE DATABASE rainmaker;

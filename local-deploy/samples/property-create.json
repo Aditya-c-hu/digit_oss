@@ -1,0 +1,58 @@
+{
+  "RequestInfo": {
+    "apiId": "asset-services",
+    "ver": "1.0",
+    "ts": null,
+    "action": "_create",
+    "did": "1",
+    "key": "",
+    "msgId": "20170310130900|en_IN",
+    "authToken": "test-token",
+    "userInfo": {
+      "id": 1,
+      "uuid": "a713e6ad-892d-421f-a52d-477c0ea9278a",
+      "userName": "EMPLOYEE",
+      "name": "Employee One",
+      "mobileNumber": "9999999999",
+      "type": "EMPLOYEE",
+      "tenantId": "pb.amritsar",
+      "roles": [
+        { "code": "PT_CEMP", "name": "Property Tax Employee", "tenantId": "pb.amritsar" },
+        { "code": "WS_CEMP", "name": "Water Connection Employee", "tenantId": "pb.amritsar" }
+      ]
+    }
+  },
+  "Property": {
+    "tenantId": "pb.amritsar",
+    "propertyType": "BUILTUP.INDEPENDENTPROPERTY",
+    "ownershipCategory": "INDIVIDUAL.SINGLEOWNER",
+    "usageCategory": "RESIDENTIAL",
+    "noOfFloors": 1,
+    "landArea": 100,
+    "superBuiltUpArea": 100,
+    "address": {
+      "tenantId": "pb.amritsar",
+      "doorNo": "12",
+      "buildingName": "Test House",
+      "street": "Test Street",
+      "locality": { "code": "SUN04", "name": "Ajit Nagar" },
+      "city": "Amritsar",
+      "pincode": "143001"
+    },
+    "owners": [
+      {
+        "name": "Test Owner",
+        "mobileNumber": "9999999999",
+        "fatherOrHusbandName": "Father",
+        "relationship": "FATHER",
+        "gender": "MALE",
+        "ownerType": "NONE",
+        "ownerShipPercentage": 100,
+        "tenantId": "pb.amritsar"
+      }
+    ],
+    "creationReason": "CREATE",
+    "source": "MUNICIPAL_RECORDS",
+    "channel": "CFC_COUNTER"
+  }
+}

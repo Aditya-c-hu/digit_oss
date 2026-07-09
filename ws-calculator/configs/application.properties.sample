@@ -1,0 +1,41 @@
+# ws-calculator configuration sample.
+# Resolution order: environment variable > application.properties > built-in default.
+# Env keys = property key upper-cased with '.'/'-' -> '_' (e.g. egov.billing.service.host -> EGOV_BILLING_SERVICE_HOST).
+
+# --- server / db / kafka ---
+server.port=8091
+server.context-path=/ws-calculator
+db.host=postgres
+db.port=5432
+db.user=postgres
+# db.password: set via DB_PASSWORD env in real environments; do not commit a real secret.
+db.password=postgres
+db.name=rainmaker
+# db.sslmode: use require/verify-full in production; disable only for local.
+db.sslmode=disable
+kafka.brokers=kafka:9092
+kafka.group.id=egov-ws-calculator
+
+# --- integration toggles (default false = local/offline mode) ---
+is.mdms.enabled=false
+is.billing.enabled=false
+
+# --- external service hosts (required when the matching toggle is true) ---
+egov.mdms.host=
+egov.billing.service.host=
+egov.ws.billingslab.module=ws-services-calculation
+egov.ws.billingslab.master=WCBillingSlab
+
+# --- one-time fees (used by _estimate when MDMS FeeSlab not loaded) ---
+egov.ws.fee.form=100
+egov.ws.fee.scrutiny=50
+egov.ws.fee.security=500
+egov.ws.fee.roadcutting.rate=200
+
+# --- penalty / interest (overridden by MDMS Penalty/Interest masters) ---
+egov.ws.penalty.rate=10
+egov.ws.penalty.applicableafterdays=30
+egov.ws.interest.rate=12
+egov.ws.interest.applicableafterdays=30
+
+state.level.tenant.id=pb

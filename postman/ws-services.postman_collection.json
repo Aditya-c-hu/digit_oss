@@ -1,0 +1,80 @@
+{
+  "info": {
+    "name": "ws-services (Go port)",
+    "_postman_id": "ws-services-go-collection",
+    "description": "DIGIT ws-services REST API — Go reimplementation. Base URL is http://{{host}}:{{port}}/ws-services",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "host", "value": "localhost" },
+    { "key": "port", "value": "8090" },
+    { "key": "tenantId", "value": "pb.amritsar" },
+    { "key": "authToken", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "url": "http://{{host}}:{{port}}/health"
+      }
+    },
+    {
+      "name": "Create Water Connection",
+      "request": {
+        "method": "POST",
+        "url": "http://{{host}}:{{port}}/ws-services/wc/_create",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"RequestInfo\": {\n    \"apiId\": \"asset-services\",\n    \"ver\": \"1.0\",\n    \"ts\": 1700000000000,\n    \"action\": \"create\",\n    \"msgId\": \"123\",\n    \"authToken\": \"{{authToken}}\",\n    \"userInfo\": {\n      \"uuid\": \"e8d0d5b7-d4f0-4c1c-8a30-9c1f6d1e98ef\",\n      \"userName\": \"citizen1\",\n      \"type\": \"CITIZEN\",\n      \"tenantId\": \"{{tenantId}}\",\n      \"roles\": [{ \"code\": \"CITIZEN\" }]\n    }\n  },\n  \"WaterConnection\": {\n    \"tenantId\": \"{{tenantId}}\",\n    \"propertyId\": \"PB-PT-2024-09-01-001\",\n    \"connectionCategory\": \"RESIDENTIAL\",\n    \"connectionType\": \"Non_Metered\",\n    \"waterSource\": \"BOREWELL\",\n    \"noOfTaps\": 1,\n    \"pipeSize\": 0.5,\n    \"channel\": \"CITIZEN\",\n    \"applicationType\": \"NEW_WATER_CONNECTION\",\n    \"processInstance\": { \"action\": \"INITIATE\", \"businessService\": \"NewWS1\" }\n  }\n}"
+        }
+      }
+    },
+    {
+      "name": "Search Water Connections",
+      "request": {
+        "method": "POST",
+        "url": "http://{{host}}:{{port}}/ws-services/wc/_search?tenantId={{tenantId}}&offset=0&limit=20",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"RequestInfo\": { \"authToken\": \"{{authToken}}\" } }"
+        }
+      }
+    },
+    {
+      "name": "Update Water Connection",
+      "request": {
+        "method": "POST",
+        "url": "http://{{host}}:{{port}}/ws-services/wc/_update",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"RequestInfo\": { \"authToken\": \"{{authToken}}\" },\n  \"WaterConnection\": {\n    \"id\": \"REPLACE_WITH_ID\",\n    \"tenantId\": \"{{tenantId}}\",\n    \"applicationStatus\": \"PENDING_APPROVAL_FOR_CONNECTION\",\n    \"processInstance\": { \"action\": \"SUBMIT_APPLICATION\" }\n  }\n}"
+        }
+      }
+    },
+    {
+      "name": "Plain Search",
+      "request": {
+        "method": "POST",
+        "url": "http://{{host}}:{{port}}/ws-services/wc/_plainsearch?tenantId={{tenantId}}&limit=50",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"RequestInfo\": {} }"
+        }
+      }
+    },
+    {
+      "name": "Encrypt Old Data (always 400 unless privacy enabled)",
+      "request": {
+        "method": "POST",
+        "url": "http://{{host}}:{{port}}/ws-services/wc/_encryptOldData?tenantId={{tenantId}}",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{ \"RequestInfo\": {} }" }
+      }
+    }
+  ]
+}

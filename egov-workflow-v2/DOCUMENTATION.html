@@ -1,0 +1,123 @@
+<html>
+<head>
+<style>
+body { font-family: 'Calibri', sans-serif; font-size: 11pt; line-height: 1.5; color: #000; margin: 40px; }
+h1 { color: #005A9C; border-bottom: 2px solid #005A9C; padding-bottom: 5px; font-size: 20pt; font-weight: bold; }
+h2 { color: #0078D7; margin-top: 20px; font-size: 16pt; font-weight: bold; }
+h3 { color: #003366; font-size: 14pt; margin-top: 15px; font-weight: bold; }
+p { margin-bottom: 10px; }
+pre { font-family: 'Consolas', monospace; background-color: #f4f4f4; padding: 10px; border: 1px solid #ddd; }
+ol, ul { margin-bottom: 10px; }
+li { margin-bottom: 5px; }
+.bold { font-weight: bold; }
+</style>
+</head>
+<body>
+<h1>eGov-Workflow-v2 Service Documentation</h1>
+<p>This document provides a comprehensive overview of the <span class="bold">egov-workflow-v2</span> service, detailing its purpose, its role within the DIGIT OSS ecosystem, and a complete guide on how to deploy and run it locally.</p>
+
+<h2>1. What the Service is Doing</h2>
+<p>The egov-workflow-v2 is the core workflow engine that acts as a finite state machine for the DIGIT platform. Whenever a civic application, license, or complaint needs to move through a series of steps (e.g., Applied -> Pending Approval -> Approved), this service manages that exact lifecycle.</p>
+
+<h3>Key Capabilities:</h3>
+<ul>
+<li><span class="bold">State Transitions:</span> It moves applications from one state to another (e.g., APPLIED to PENDINGFORASSIGNMENT) based on defined actions (APPLY, ASSIGN, APPROVE).</li>
+<li><span class="bold">Role-Based Execution:</span> It guarantees that only actors with the required roles (e.g., CITIZEN, GRO, CSR) can perform specific actions in a given state.</li>
+<li><span class="bold">Inbox Management:</span> It manages employee "inboxes". When a process demands the attention of an employee, the workflow engine routes it to their inbox. Once assigned to a specific individual, it appears solely in their inbox, though anyone with sufficient permissions can search for it.</li>
+<li><span class="bold">Service Level Agreements (SLAs):</span> It enforces deadlines by managing an Overall SLA (total time for full processing) and a State level SLA (maximum time allowed within a single intermediate state).</li>
+<li><span class="bold">Audit Trails &amp; Transitions:</span> It tracks the entire history of an application's lifecycle, generating search structures that power application timelines in the frontend UI.</li>
+</ul>
+
+<h2>2. Where is it Being Used?</h2>
+<p>This service is fundamentally used across almost all Citizen-facing modules and Employee administrative portals in the DIGIT ecosystem.</p>
+
+<h3>Common Use Cases:</h3>
+<ol>
+<li><span class="bold">PGR (Public Grievance Redressal):</span> When a citizen submits a pothole complaint, the complaint is ingested and passed to the workflow engine. The workflow dictates it is in the PENDINGFORASSIGNMENT state and shows it to the LME (Local Municipal Employee), waiting for them to take the ASSIGN action.</li>
+<li><span class="bold">Trade Licenses / PT (Property Tax):</span> Applications for new business licenses flow through this system, transitioning between document verifications, field inspections, fee estimations, and final approvals.</li>
+<li><span class="bold">Employee Inbox:</span> The universal "Inbox" feature seen natively by all government employees entering the system is populated exclusively by querying egov-workflow-v2 for pending actions associated with their unique role IDs.</li>
+</ol>
+<p>It acts as the intermediary between domain-specific microservices (like egov-trade-license) and the employee front-end. It heavily depends on the <span class="bold">egov-mdms-service</span> (for fetching system master configurations) and the <span class="bold">egov-user</span> service (to identify and validate who is executing transitions).</p>
+
+<h2>3. Steps to Make it Running (Docker Deployment)</h2>
+<p>We have containerized the service using a multi-service Docker Compose ecosystem so that runtime dependencies are automatically managed locally offline. The provided setup launches the workflow engine, its core sibling dependencies (egov-mdms-service, egov-user), an isolated PostgreSQL database, Redis cache, and a Kafka/Zookeeper messaging bus locally.</p>
+
+<p><span class="bold">Prerequisites:</span></p>
+<ul>
+<li>Ensure Docker Desktop is installed and the Docker daemon is currently running.</li>
+<li>Ensure Ports 8280, 8094, 8081, 5432, 9092, 2181, and 6379 are available and not blocked by other local processes.</li>
+</ul>
+
+<h3>Step-by-Step Deployment:</h3>
+
+<p><span class="bold">1. Open your Terminal / PowerShell</span><br>
+Navigate to the root directory of the workflow service:</p>
+<pre>cd c:\Users\Aditya\Downloads\DIGIT-OSS-master\core-services\egov-workflow-v2</pre>
+
+<p><span class="bold">2. Start the Docker Services</span><br>
+Using the custom docker-compose.yml file, execute the following command:</p>
+<pre>docker-compose up --build -d</pre>
+<p><i>Note: The --build flag forces a fresh Maven build inside the container, pulling required eGov artifacts directly from the DIGIT Nexus repository. The MDMS service will actively git clone official master data payload at build time.</i></p>
+
+<p><span class="bold">3. Monitor the Cold Boot Race Condition</span><br>
+Spring Boot applications boot asynchronously but have sequential dependencies. egov-mdms-service takes roughly 15-20 seconds to parse thousands of JSON schema documents before port 8094 opens.<br>
+Monitor the workflow logs:</p>
+<pre>docker-compose logs -f egov-workflow-v2</pre>
+<p>If you see a <code>java.net.ConnectException: Connection refused</code> or <code>json object can not be null</code>, it means Workflow tried to search MDMS before it was fully alive. Wait 30 seconds for MDMS to initialize, then restart the workflow container:</p>
+<pre>docker-compose restart egov-workflow-v2</pre>
+<p>You should eventually see standard Spring Boot startup logs concluding with successful initialization (Tomcat started on port 8280).</p>
+
+<p><span class="bold">4. Test the APIs (Using PowerShell)</span><br>
+The server will be reachable on localhost:8280. Do not use native <code>curl.exe</code> with single quotes in Windows PowerShell as it improperly removes double-quotes, causing JSON Parse errors. Instead, use PowerShell's native Invoke-RestMethod:</p>
+<pre>
+$body = @{
+    RequestInfo = @{
+        apiId = "string"
+        ver = "string"
+        msgId = "string"
+        action = "string"
+    }
+} | ConvertTo-Json -Depth 10
+
+Invoke-RestMethod -Uri "http://localhost:8280/egov-workflow-v2/egov-wf/businessservice/_search?tenantId=pb" -Method Post -ContentType "application/json" -Body $body
+</pre>
+<p>You will get a <code>status=successful</code> 200 OK JSON response marking a fully active local cluster!</p>
+
+<p><span class="bold">5. Accessing the Swagger UI API Documentation</span><br>
+We have integrated Springfox Swagger directly into the workflow engine to dynamically document all available REST endpoints.<br>
+Once the container is running smoothly, open your web browser and navigate to:<br>
+<a href="http://localhost:8280/egov-workflow-v2/swagger-ui.html">http://localhost:8280/egov-workflow-v2/swagger-ui.html</a></p>
+<p>You can interactively execute <code>/businessservice/_search</code> and other endpoints straight from the browser interface!</p>
+
+<p><span class="bold">Teardown:</span><br>
+If you ever need to stop the application and wipe the associated ephemeral database/queues, use:</p>
+<pre>docker-compose down -v</pre>
+
+<h2>4. Development History and Infrastructure Triage</h2>
+<p>Building the localized runtime ecosystem iteratively encountered several structural boundaries within the DIGIT OSS architecture that were successfully bypassed:</p>
+
+<ol>
+<li><p><span class="bold">Dependent Microservice Connectivity</span><br>
+We initially containerized only Workflow, but the Spring ApplicationContext aggressively crashed on startup with a <code>BeanCreationException</code>. Debugging MDMSService.java logs revealed workflow mandates direct access to <code>egov-mdms-service</code> endpoints to inject the <code>stateLevelMapping</code> bean on boot. We solved this by importing and building the MDMS and eGov-User microservices locally to emulate the cloud environment.</p></li>
+
+<li><p><span class="bold">Windows / Docker Compose Zookeeper Bugs</span><br>
+We encountered recurring <code>ERROR: missing mandatory config: KAFKA_ZOOKEEPER_CONNECT</code> failures on Zookeeper specifically on Windows. Docker Compose on Windows aggressively parses environment arrays and strips quotes from numbers causing YAML syntax degradation. We resolved this by overriding the latest stable <code>wurstmeister/kafka</code> image strings and converting variables uniformly to hyphen-based array syntax.</p></li>
+
+<li><p><span class="bold">Sourcing the Master Data Hierarchy</span><br>
+eGov-Workflow requires configurations mapping specifically to the Punjab <code>pb</code> tenant. Initially, the local MDMS service triggered <code>400 Bad Request: Invalid Tenant Id</code> because building the Docker container out of the box leaves the <code>/app/data</code> directories completely empty.<br>
+<span class="bold">Fix:</span> We overhauled the <code>egov-mdms-service/Dockerfile</code> to automatically orchestrate <code>git clone https://github.com/egovernments/egov-mdms-data.git</code> at build time so the master configurations are seamlessly available.</p></li>
+
+<li><p><span class="bold">Bypassing Validation Scope Bugs</span><br>
+Mapping the newly downloaded MDMS JSON files to the workflow raised further validation exceptions. <code>docker-compose</code> mapped <code>EGOV_MDMS_CONF_PATH: file:///app/egov-mdms-data/data/pb</code>. Restricting MDMS strictly to the child subfolder severed access to the <code>common</code> structural configurations resulting in further exceptions.<br>
+<span class="bold">Fix:</span> We streamlined the mapping pointing universally to <code>/app/egov-mdms-data/data</code>. This allows MDMS to recursively scan every dataset properly, successfully validating the <code>pb</code> schema context.</p></li>
+
+<li><p><span class="bold">Payload Endpoint Syntax Requirements</span><br>
+Making the final validation request via <code>curl</code> produced a <code>NotNull.businessServiceSearchCriteria.tenantId</code> exception when passing <code>tenantId</code> inside the JSON HTTP Body. We isolated the BusinessServiceController.java and found it uses <code>@ModelAttribute</code> for parameters and <code>@RequestBody</code> for RequestInfo, meaning <code>tenantId</code> rigidly operates strictly via structural URL Query Strings <code>?tenantId=pb</code> instead of POST payloads.</p></li>
+
+<li><p><span class="bold">Integrating Swagger OpenAPI</span><br>
+The source repository contained <code>@ApiModel</code> metadata from <code>swagger-core</code> v1.5, but completely lacked a functional UI dashboard.<br>
+<span class="bold">Fix:</span> We systematically updated <code>pom.xml</code> to inject <code>springfox-swagger2</code> and <code>springfox-swagger-ui</code> (v2.9.2), then created a custom <code>SwaggerConfig.java</code> bean to configure the path selectors and safely mount the interactive Swagger API Dashboard at <code>/swagger-ui.html</code> so it wouldn't conflict with existing DIGIT WebMvc interceptors.</p></li>
+</ol>
+
+</body>
+</html>

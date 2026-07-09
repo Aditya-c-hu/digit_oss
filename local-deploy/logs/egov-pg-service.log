@@ -1,0 +1,11 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::       (v2.2.13.RELEASE)
+
+2026-05-21 17:18:35.491+0530  INFO --- [      main] org.egov.pg.Main                         --  : Starting Main v1.2.4-SNAPSHOT on LAPTOP-Q2EQEE4F with PID 21332 (C:\Users\Aditya\Downloads\DIGIT-OSS-master\municipal-services-go\egov-pg-service\target\egov-pg-service-1.2.4-SNAPSHOT.jar started by Aditya in C:\Users\Aditya\Downloads\DIGIT-OSS-master\municipal-services-go\local-deploy) 
+2026-05-21 17:18:35.500+0530  INFO --- [      main] org.egov.pg.Main                         --  : No active profile set, falling back to default profiles: default 

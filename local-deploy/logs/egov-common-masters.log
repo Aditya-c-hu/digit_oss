@@ -1,0 +1,14 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::       (v1.5.22.RELEASE)
+
+2026-05-21 17:18:31.934+0530  INFO --- [      main] o.e.c.EgovCommonMastersApplication       --  : Starting EgovCommonMastersApplication v0.0.1-SNAPSHOT on LAPTOP-Q2EQEE4F with PID 38320 (C:\Users\Aditya\Downloads\DIGIT-OSS-master\municipal-services-go\egov-common-masters\target\egov-common-masters-0.0.1-SNAPSHOT.jar started by Aditya in C:\Users\Aditya\Downloads\DIGIT-OSS-master\municipal-services-go\local-deploy) 
+2026-05-21 17:18:32.015+0530  INFO --- [      main] o.e.c.EgovCommonMastersApplication       --  : No active profile set, falling back to default profiles: default 
+2026-05-21 17:18:32.685+0530  INFO --- [      main] ationConfigEmbeddedWebApplicationContext --  : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@108c4c35: startup date [Thu May 21 17:18:32 IST 2026]; root of context hierarchy 
+2026-05-21 17:18:38.493+0530  INFO --- [      main] o.s.c.a.ConfigurationClassParser         --  : Properties location [classpath:messages/messages.properties] not resolvable: class path resource [messages/messages.properties] cannot be opened because it does not exist 
+2026-05-21 17:18:38.497+0530  INFO --- [      main] o.s.c.a.ConfigurationClassParser         --  : Properties location [classpath:messages/messages.properties] not resolvable: class path resource [messages/messages.properties] cannot be opened because it does not exist 

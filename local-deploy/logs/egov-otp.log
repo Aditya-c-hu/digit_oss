@@ -1,0 +1,68 @@
+17:18:24,528 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
+17:18:24,529 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.groovy]
+17:18:24,557 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback.xml] at [jar:file:/C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/egov-otp/target/egov-otp-1.2.3-SNAPSHOT.jar!/BOOT-INF/classes!/logback.xml]
+17:18:25,025 |-INFO in ch.qos.logback.core.joran.spi.ConfigurationWatchList@5a2e4553 - URL [jar:file:/C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/egov-otp/target/egov-otp-1.2.3-SNAPSHOT.jar!/BOOT-INF/classes!/logback.xml] is not of type file
+17:18:26,533 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+17:18:26,921 |-INFO in ch.qos.logback.core.joran.util.ConfigurationWatchListUtil@28c97a5 - Adding [jar:file:/C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/egov-otp/target/egov-otp-1.2.3-SNAPSHOT.jar!/BOOT-INF/lib/spring-boot-2.2.13.RELEASE.jar!/org/springframework/boot/logging/logback/base.xml] to configuration watch list.
+17:18:26,921 |-INFO in ch.qos.logback.core.joran.spi.ConfigurationWatchList@5a2e4553 - URL [jar:file:/C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/egov-otp/target/egov-otp-1.2.3-SNAPSHOT.jar!/BOOT-INF/lib/spring-boot-2.2.13.RELEASE.jar!/org/springframework/boot/logging/logback/base.xml] is not of type file
+17:18:26,943 |-INFO in ch.qos.logback.core.joran.util.ConfigurationWatchListUtil@28c97a5 - Adding [jar:file:/C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/egov-otp/target/egov-otp-1.2.3-SNAPSHOT.jar!/BOOT-INF/lib/spring-boot-2.2.13.RELEASE.jar!/org/springframework/boot/logging/logback/defaults.xml] to configuration watch list.
+17:18:26,943 |-INFO in ch.qos.logback.core.joran.spi.ConfigurationWatchList@5a2e4553 - URL [jar:file:/C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/egov-otp/target/egov-otp-1.2.3-SNAPSHOT.jar!/BOOT-INF/lib/spring-boot-2.2.13.RELEASE.jar!/org/springframework/boot/logging/logback/defaults.xml] is not of type file
+17:18:26,948 |-INFO in ch.qos.logback.core.joran.action.ConversionRuleAction - registering conversion word clr with class [org.springframework.boot.logging.logback.ColorConverter]
+17:18:26,948 |-INFO in ch.qos.logback.core.joran.action.ConversionRuleAction - registering conversion word wex with class [org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter]
+17:18:26,949 |-INFO in ch.qos.logback.core.joran.action.ConversionRuleAction - registering conversion word wEx with class [org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter]
+17:18:27,024 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.apache.catalina.startup.DigesterFactory] to ERROR
+17:18:27,024 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.apache.catalina.util.LifecycleBase] to ERROR
+17:18:27,024 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.apache.coyote.http11.Http11NioProtocol] to WARN
+17:18:27,024 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.apache.sshd.common.util.SecurityUtils] to WARN
+17:18:27,025 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.apache.tomcat.util.net.NioSelectorPool] to WARN
+17:18:27,025 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.eclipse.jetty.util.component.AbstractLifeCycle] to ERROR
+17:18:27,025 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.hibernate.validator.internal.util.Version] to WARN
+17:18:27,025 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.springframework.boot.actuate.endpoint.jmx] to WARN
+17:18:27,026 |-INFO in ch.qos.logback.core.joran.util.ConfigurationWatchListUtil@28c97a5 - Adding [jar:file:/C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/egov-otp/target/egov-otp-1.2.3-SNAPSHOT.jar!/BOOT-INF/lib/spring-boot-2.2.13.RELEASE.jar!/org/springframework/boot/logging/logback/console-appender.xml] to configuration watch list.
+17:18:27,026 |-INFO in ch.qos.logback.core.joran.spi.ConfigurationWatchList@5a2e4553 - URL [jar:file:/C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/egov-otp/target/egov-otp-1.2.3-SNAPSHOT.jar!/BOOT-INF/lib/spring-boot-2.2.13.RELEASE.jar!/org/springframework/boot/logging/logback/console-appender.xml] is not of type file
+17:18:27,031 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+17:18:27,043 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [CONSOLE]
+17:18:27,167 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+17:18:27,757 |-INFO in ch.qos.logback.core.joran.util.ConfigurationWatchListUtil@28c97a5 - Adding [jar:file:/C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/egov-otp/target/egov-otp-1.2.3-SNAPSHOT.jar!/BOOT-INF/lib/spring-boot-2.2.13.RELEASE.jar!/org/springframework/boot/logging/logback/file-appender.xml] to configuration watch list.
+17:18:27,757 |-INFO in ch.qos.logback.core.joran.spi.ConfigurationWatchList@5a2e4553 - URL [jar:file:/C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/egov-otp/target/egov-otp-1.2.3-SNAPSHOT.jar!/BOOT-INF/lib/spring-boot-2.2.13.RELEASE.jar!/org/springframework/boot/logging/logback/file-appender.xml] is not of type file
+17:18:27,761 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+17:18:27,793 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [FILE]
+17:18:27,798 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+17:18:27,881 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@1717159510 - setting totalSizeCap to 0 Bytes
+17:18:27,892 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@1717159510 - Archive files will be limited to [10 MB] each.
+17:18:27,903 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@1717159510 - Will use gz compression
+17:18:27,907 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@1717159510 - Will use the pattern C:/Users/Aditya/AppData/Local/Temp//spring.log.%d{yyyy-MM-dd}.%i for the active file
+17:18:27,952 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@6d5380c2 - The date pattern is 'yyyy-MM-dd' from file name pattern 'C:/Users/Aditya/AppData/Local/Temp//spring.log.%d{yyyy-MM-dd}.%i.gz'.
+17:18:27,952 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@6d5380c2 - Roll-over at midnight.
+17:18:27,969 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@6d5380c2 - Setting initial period to Thu May 21 16:53:12 IST 2026
+17:18:30,037 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[FILE] - Active log file name: C:\Users\Aditya\AppData\Local\Temp\/spring.log
+17:18:30,037 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[FILE] - File property is set to [C:\Users\Aditya\AppData\Local\Temp\/spring.log]
+17:18:30,039 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to INFO
+17:18:30,040 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [CONSOLE] to Logger[ROOT]
+17:18:30,042 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [FILE] to Logger[ROOT]
+17:18:30,042 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.springframework.web] to ERROR
+17:18:30,042 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+17:18:30,042 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [CUSTOM_CONSOLE]
+17:18:30,042 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [ch.qos.logback.classic.PatternLayout] for [layout] property
+17:18:30,045 |-WARN in ch.qos.logback.core.ConsoleAppender[CUSTOM_CONSOLE] - This appender no longer admits a layout as a sub-component, set an encoder instead.
+17:18:30,045 |-WARN in ch.qos.logback.core.ConsoleAppender[CUSTOM_CONSOLE] - To ensure compatibility, wrapping your layout in LayoutWrappingEncoder.
+17:18:30,045 |-WARN in ch.qos.logback.core.ConsoleAppender[CUSTOM_CONSOLE] - See also http://logback.qos.ch/codes.html#layoutInsteadOfEncoder for details
+17:18:30,046 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to INFO
+17:18:30,046 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [CUSTOM_CONSOLE] to Logger[ROOT]
+17:18:30,046 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [FILE] to Logger[ROOT]
+17:18:30,046 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
+17:18:30,047 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@45ff54e6 - Registering current configuration as safe fallback point
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::       (v2.2.13.RELEASE)
+
+2026-05-21 17:18:37.544  INFO 21736 --- [           main] org.egov.OtpApplication                  : Starting OtpApplication v1.2.3-SNAPSHOT on LAPTOP-Q2EQEE4F with PID 21736 (C:\Users\Aditya\Downloads\DIGIT-OSS-master\municipal-services-go\egov-otp\target\egov-otp-1.2.3-SNAPSHOT.jar started by Aditya in C:\Users\Aditya\Downloads\DIGIT-OSS-master\municipal-services-go\local-deploy)
+2026-05-21 17:18:37 [main] INFO  org.egov.OtpApplication - Starting OtpApplication v1.2.3-SNAPSHOT on LAPTOP-Q2EQEE4F with PID 21736 (C:\Users\Aditya\Downloads\DIGIT-OSS-master\municipal-services-go\egov-otp\target\egov-otp-1.2.3-SNAPSHOT.jar started by Aditya in C:\Users\Aditya\Downloads\DIGIT-OSS-master\municipal-services-go\local-deploy)
+2026-05-21 17:18:37.555  INFO 21736 --- [           main] org.egov.OtpApplication                  : No active profile set, falling back to default profiles: default
+2026-05-21 17:18:37 [main] INFO  org.egov.OtpApplication - No active profile set, falling back to default profiles: default

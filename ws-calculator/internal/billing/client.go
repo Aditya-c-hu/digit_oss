@@ -1,0 +1,102 @@
+package billing
+
+import (
+	"bytes"
+	"context"
+	"encoding/json"
+	"fmt"
+	"net/http"
+	"net/url"
+	"time"
+
+	"github.com/egov/ws-calculator/internal/domain"
+)
+
+// Client integrates with the external billing-service for demand
+// search/create/update. When disabled, callers fall back to local synthesis.
+type Client struct {
+	HTTP       *http.Client
+	Host       string
+	CreatePath string
+	UpdatePath string
+	SearchPath string
+	Enabled    bool
+}
+
+func New(host, createPath, updatePath, searchPath string, enabled bool) *Client {
+	return &Client{
+		HTTP:       &http.Client{Timeout: 15 * time.Second},
+		Host:       host,
+		CreatePath: createPath,
+		UpdatePath: updatePath,
+		SearchPath: searchPath,
+		Enabled:    enabled,
+	}
+}
+
+type demandRequest struct {
+	RequestInfo *domain.RequestInfo `json:"RequestInfo"`
+	Demands     []domain.Demand     `json:"Demands"`
+}
+
+type demandResponse struct {
+	Demands []domain.Demand `json:"Demands"`
+}
+
+// Search returns existing demands for a consumer code + business service.
+func (c *Client) Search(ctx context.Context, ri *domain.RequestInfo, tenantID, businessService, consumerCode string) ([]domain.Demand, error) {
+	q := url.Values{}
+	q.Set("tenantId", tenantID)
+	q.Set("businessService", businessService)
+	q.Set("consumerCode", consumerCode)
+	u := c.Host + c.SearchPath + "?" + q.Encode()
+	body, _ := json.Marshal(map[string]any{"RequestInfo": ri})
+	out, err := c.do(ctx, http.MethodPost, u, body)
+	if err != nil {
+		return nil, err
+	}
+	return out.Demands, nil
+}
+
+// Create persists new demands and returns them as stored.
+func (c *Client) Create(ctx context.Context, ri *domain.RequestInfo, demands []domain.Demand) ([]domain.Demand, error) {
+	return c.write(ctx, c.Host+c.CreatePath, ri, demands)
+}
+
+// Update updates existing demands and returns them as stored.
+func (c *Client) Update(ctx context.Context, ri *domain.RequestInfo, demands []domain.Demand) ([]domain.Demand, error) {
+	return c.write(ctx, c.Host+c.UpdatePath, ri, demands)
+}
+
+func (c *Client) write(ctx context.Context, u string, ri *domain.RequestInfo, demands []domain.Demand) ([]domain.Demand, error) {
+	body, err := json.Marshal(demandRequest{RequestInfo: ri, Demands: demands})
+	if err != nil {
+		return nil, err
+	}
+	out, err := c.do(ctx, http.MethodPost, u, body)
+	if err != nil {
+		return nil, err
+	}
+	return out.Demands, nil
+}
+
+func (c *Client) do(ctx context.Context, method, u string, body []byte) (*demandResponse, error) {
+	httpReq, err := http.NewRequestWithContext(ctx, method, u, bytes.NewReader(body))
+	if err != nil {
+		return nil, err
+	}
+	httpReq.Header.Set("Content-Type", "application/json")
+	resp, err := c.HTTP.Do(httpReq)
+	if err != nil {
+		return nil, err
+	}
+	defer resp.Body.Close()
+	if resp.StatusCode >= 300 {
+		return nil, fmt.Errorf("billing-service %s: %s", u, resp.Status)
+	}
+	var out demandResponse
+	if err := json.NewDecoder(resp.Body).Decode(&out); err != nil {
+		return nil, err
+	}
+	return &out, nil
+}

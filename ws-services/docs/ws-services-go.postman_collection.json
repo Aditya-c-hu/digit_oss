@@ -1,0 +1,83 @@
+{
+  "info": {
+    "name": "ws-services (Go)",
+    "description": "Water Connection Service - Go port. Set {{host}} to the service base (default http://localhost:8090). All business endpoints are POST under /ws-services.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "host", "value": "http://localhost:8090" },
+    { "key": "tenantId", "value": "pb.amritsar" },
+    { "key": "propertyId", "value": "REPLACE_WITH_PROPERTY_ID" },
+    { "key": "applicationNumber", "value": "REPLACE_WITH_APPLICATION_NO" }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "request": { "method": "GET", "url": "{{host}}/health" }
+    },
+    {
+      "name": "Create Water Connection",
+      "request": {
+        "method": "POST",
+        "header": [ { "key": "Content-Type", "value": "application/json" } ],
+        "url": "{{host}}/ws-services/wc/_create",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"RequestInfo\": { \"apiId\": \"ws-services\", \"ver\": \"1.0\", \"action\": \"_create\", \"authToken\": \"test-token\", \"userInfo\": { \"id\": 1, \"uuid\": \"test-uuid-1\", \"userName\": \"EMPLOYEE\", \"type\": \"EMPLOYEE\", \"tenantId\": \"{{tenantId}}\", \"roles\": [ { \"code\": \"WS_CEMP\", \"tenantId\": \"{{tenantId}}\" } ] } },\n  \"WaterConnection\": {\n    \"tenantId\": \"{{tenantId}}\",\n    \"propertyId\": \"{{propertyId}}\",\n    \"applicationType\": \"NEW_WATER_CONNECTION\",\n    \"connectionType\": \"Non Metered\",\n    \"waterSource\": \"BOREWELL\",\n    \"noOfTaps\": 2,\n    \"pipeSize\": 15.0,\n    \"channel\": \"CFC_COUNTER\",\n    \"processInstance\": { \"action\": \"SUBMIT_APPLICATION\", \"comment\": \"Initial submit\" }\n  }\n}"
+        }
+      }
+    },
+    {
+      "name": "Search Water Connection",
+      "request": {
+        "method": "POST",
+        "header": [ { "key": "Content-Type", "value": "application/json" } ],
+        "url": {
+          "raw": "{{host}}/ws-services/wc/_search?tenantId={{tenantId}}&applicationNumber={{applicationNumber}}",
+          "host": [ "{{host}}" ],
+          "path": [ "ws-services", "wc", "_search" ],
+          "query": [
+            { "key": "tenantId", "value": "{{tenantId}}" },
+            { "key": "applicationNumber", "value": "{{applicationNumber}}" }
+          ]
+        },
+        "body": { "mode": "raw", "raw": "{ \"RequestInfo\": { \"apiId\": \"ws-services\", \"ver\": \"1.0\", \"authToken\": \"test-token\" } }" }
+      }
+    },
+    {
+      "name": "Update Water Connection",
+      "request": {
+        "method": "POST",
+        "header": [ { "key": "Content-Type", "value": "application/json" } ],
+        "url": "{{host}}/ws-services/wc/_update",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"RequestInfo\": { \"apiId\": \"ws-services\", \"ver\": \"1.0\", \"action\": \"_update\", \"authToken\": \"test-token\", \"userInfo\": { \"uuid\": \"test-uuid-1\", \"type\": \"EMPLOYEE\", \"tenantId\": \"{{tenantId}}\", \"roles\": [ { \"code\": \"WS_CEMP\", \"tenantId\": \"{{tenantId}}\" } ] } },\n  \"WaterConnection\": {\n    \"id\": \"REPLACE_WITH_CONNECTION_UUID\",\n    \"tenantId\": \"{{tenantId}}\",\n    \"applicationNo\": \"{{applicationNumber}}\",\n    \"connectionType\": \"Non Metered\",\n    \"processInstance\": { \"action\": \"APPROVE_FOR_CONNECTION\", \"comment\": \"Approved\" }\n  }\n}"
+        }
+      }
+    },
+    {
+      "name": "Plain Search",
+      "request": {
+        "method": "POST",
+        "header": [ { "key": "Content-Type", "value": "application/json" } ],
+        "url": {
+          "raw": "{{host}}/ws-services/wc/_plainsearch?tenantId={{tenantId}}",
+          "host": [ "{{host}}" ],
+          "path": [ "ws-services", "wc", "_plainsearch" ],
+          "query": [ { "key": "tenantId", "value": "{{tenantId}}" } ]
+        },
+        "body": { "mode": "raw", "raw": "{ \"RequestInfo\": { \"apiId\": \"ws-services\", \"ver\": \"1.0\", \"authToken\": \"test-token\" } }" }
+      }
+    },
+    {
+      "name": "Encrypt Old Data (disabled -> 400)",
+      "request": {
+        "method": "POST",
+        "header": [ { "key": "Content-Type", "value": "application/json" } ],
+        "url": "{{host}}/ws-services/wc/_encryptOldData",
+        "body": { "mode": "raw", "raw": "{ \"RequestInfo\": { \"apiId\": \"ws-services\", \"ver\": \"1.0\" } }" }
+      }
+    }
+  ]
+}

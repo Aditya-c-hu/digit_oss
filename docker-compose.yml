@@ -1,0 +1,183 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: ws-postgres
+    restart: always
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./local-deploy/init-postgres/create-dbs.sql:/docker-entrypoint-initdb.d/create-dbs.sql:ro
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.5.0
+    container_name: ws-zookeeper
+    restart: always
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+    ports:
+      - "2181:2181"
+
+  kafka:
+    image: confluentinc/cp-kafka:7.5.0
+    container_name: ws-kafka
+    restart: always
+    depends_on:
+      - zookeeper
+    ports:
+      - "29092:29092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENERS: "INSIDE://0.0.0.0:9092,OUTSIDE://0.0.0.0:29092"
+      KAFKA_ADVERTISED_LISTENERS: "INSIDE://kafka:9092,OUTSIDE://localhost:29092"
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: "INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT"
+      KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+
+  egov-user:
+    build:
+      context: ./egov-user
+    container_name: egov-user
+    restart: always
+    depends_on:
+      - postgres
+      - kafka
+    environment:
+      SERVER_PORT: "8081"
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://postgres:5432/devdb"
+      SPRING_DATASOURCE_USERNAME: "postgres"
+      SPRING_DATASOURCE_PASSWORD: "postgres"
+      KAFKA_CONFIG_BOOTSTRAP_SERVER_CONFIG: "kafka:9092"
+      EGOV_MDMS_HOST: "http://egov-mdms-service:8094"
+      MDMS_HOST: "http://egov-mdms-service:8094"
+      EGOV_MDMS_SEARCH_ENDPOINT: "/egov-mdms-service/v1/_search"
+      MDMS_PATH: "/egov-mdms-service/v1/_search"
+      DECRYPTION_ABAC_ENABLED: "false"
+    ports:
+      - "8081:8081"
+
+  egov-idgen:
+    build:
+      context: ./egov-idgen
+    container_name: egov-idgen
+    restart: always
+    depends_on:
+      - postgres
+    environment:
+      SERVER_PORT: "8088"
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://postgres:5432/rainmaker"
+      SPRING_DATASOURCE_USERNAME: "postgres"
+      SPRING_DATASOURCE_PASSWORD: "postgres"
+      KAFKA_CONFIG_BOOTSTRAP_SERVER_CONFIG: "kafka:9092"
+      EGOV_MDMS_HOST: "http://egov-mdms-service:8094"
+      MDMS_HOST: "http://egov-mdms-service:8094"
+      EGOV_MDMS_SEARCH_ENDPOINT: "/egov-mdms-service/v1/_search"
+      MDMS_PATH: "/egov-mdms-service/v1/_search"
+    ports:
+      - "8082:8088"
+
+  egov-mdms-service:
+    build:
+      context: ./egov-mdms-service
+    container_name: egov-mdms-service
+    restart: always
+    depends_on:
+      - postgres
+    environment:
+      SERVER_PORT: "8094"
+      KAFKA_CONFIG_BOOTSTRAP_SERVER_CONFIG: "kafka:9092"
+      # ensure mdms service binds correctly in-compose
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://postgres:5432/postgres"
+      SPRING_DATASOURCE_USERNAME: "postgres"
+      SPRING_DATASOURCE_PASSWORD: "postgres"
+    ports:
+      - "8083:8094"
+    volumes:
+      - ./local-deploy/mdms-data:/home/vishal/data:ro
+
+  egov-workflow-v2:
+    build:
+      context: ./egov-workflow-v2
+    container_name: egov-workflow-v2
+    restart: always
+    depends_on:
+      - postgres
+      - kafka
+    environment:
+      SERVER_PORT: "8280"
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://postgres:5432/devdump"
+      SPRING_DATASOURCE_USERNAME: "postgres"
+      SPRING_DATASOURCE_PASSWORD: "postgres"
+      KAFKA_CONFIG_BOOTSTRAP_SERVER_CONFIG: "kafka:9092"
+      EGOV_MDMS_HOST: "http://egov-mdms-service:8094"
+      MDMS_HOST: "http://egov-mdms-service:8094"
+      EGOV_MDMS_SEARCH_ENDPOINT: "/egov-mdms-service/v1/_search"
+      MDMS_PATH: "/egov-mdms-service/v1/_search"
+    ports:
+      - "8085:8280"
+
+  property-services:
+    build:
+      context: ./property-services
+    container_name: property-services
+    restart: always
+    depends_on:
+      - postgres
+      - kafka
+    environment:
+      SERVER_PORT: "8280"
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://postgres:5432/postgres"
+      SPRING_DATASOURCE_USERNAME: "postgres"
+      SPRING_DATASOURCE_PASSWORD: "postgres"
+      KAFKA_CONFIG_BOOTSTRAP_SERVER_CONFIG: "kafka:9092"
+    ports:
+      - "8088:8280"
+
+  ws-services:
+    build:
+      context: ./ws-services
+    container_name: ws-services
+    restart: always
+    depends_on:
+      - postgres
+      - kafka
+      - egov-idgen
+      - egov-user
+      - egov-workflow-v2
+    environment:
+      SERVER_PORT: "8090"
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://postgres:5432/rainmaker"
+      SPRING_DATASOURCE_USERNAME: "postgres"
+      SPRING_DATASOURCE_PASSWORD: "postgres"
+      KAFKA_CONFIG_BOOTSTRAP_SERVER_CONFIG: "kafka:9092"
+    ports:
+      - "8090:8090"
+
+  ws-calculator:
+    build:
+      context: ./ws-calculator
+    container_name: ws-calculator
+    restart: always
+    depends_on:
+      - postgres
+      - kafka
+      - ws-services
+      - egov-mdms-service
+    environment:
+      SERVER_PORT: "8091"
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://postgres:5432/rainmaker"
+      SPRING_DATASOURCE_USERNAME: "postgres"
+      SPRING_DATASOURCE_PASSWORD: "postgres"
+      KAFKA_CONFIG_BOOTSTRAP_SERVER_CONFIG: "kafka:9092"
+    ports:
+      - "8091:8091"
+
+volumes:
+  postgres-data:

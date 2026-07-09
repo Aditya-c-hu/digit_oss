@@ -1,0 +1,42 @@
+# ws-services configuration sample.
+# Resolution order: environment variable > application.properties > built-in default.
+# Env keys = property key upper-cased with '.'/'-' -> '_' (e.g. egov.idgen.host -> EGOV_IDGEN_HOST).
+# Copy to application.properties (or set env vars) and adjust per environment.
+
+# --- server / db / kafka ---
+server.port=8090
+server.context-path=/ws-services
+db.host=postgres
+db.port=5432
+db.user=postgres
+# db.password: set via DB_PASSWORD env in real environments; do not commit a real secret.
+db.password=postgres
+db.name=rainmaker
+# db.sslmode: use require/verify-full in production; disable only for local.
+db.sslmode=disable
+kafka.brokers=kafka:9092
+kafka.group.id=egov-ws-services
+
+# --- integration toggles (default false = local/offline mode) ---
+is.idgen.enabled=false
+is.mdms.enabled=false
+is.property.enabled=false
+is.user.enabled=false
+is.external.workflow.enabled=false
+is.persister.enabled=false
+is.encryption.enabled=false
+notification.sms.enabled=false
+notification.email.enabled=false
+
+# --- external service hosts (required when the matching toggle is true) ---
+egov.idgen.host=
+egov.mdms.host=
+egov.property.host=
+egov.user.host=
+workflow.context.path=
+egov.enc.host=
+
+# --- misc ---
+state.level.tenant.id=pb
+egov.waterservice.pagination.default.limit=50
+egov.waterservice.pagination.max.limit=500

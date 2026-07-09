@@ -1,0 +1,97 @@
+{
+  "info": {
+    "name": "ws-calculator (Go port)",
+    "_postman_id": "ws-calculator-go-collection",
+    "description": "DIGIT ws-calculator REST API — Go reimplementation. Base URL is http://{{host}}:{{port}}/ws-calculator",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "host", "value": "localhost" },
+    { "key": "port", "value": "8091" },
+    { "key": "tenantId", "value": "pb.amritsar" }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "request": { "method": "GET", "url": "http://{{host}}:{{port}}/health" }
+    },
+    {
+      "name": "Estimate",
+      "request": {
+        "method": "POST",
+        "url": "http://{{host}}:{{port}}/ws-calculator/waterCalculator/_estimate",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"RequestInfo\": { \"apiId\": \"ws-calculator\", \"ver\": \"1.0\" },\n  \"CalculationCriteria\": [\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"applicationNo\": \"WS_AP/AMR/0001\",\n      \"waterConnection\": {\n        \"connectionCategory\": \"RESIDENTIAL\",\n        \"connectionType\": \"Metered\",\n        \"noOfTaps\": 1,\n        \"pipeSize\": 0.5\n      }\n    }\n  ]\n}"
+        }
+      }
+    },
+    {
+      "name": "Calculate",
+      "request": {
+        "method": "POST",
+        "url": "http://{{host}}:{{port}}/ws-calculator/waterCalculator/_calculate",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"RequestInfo\": {},\n  \"CalculationCriteria\": [\n    {\n      \"tenantId\": \"{{tenantId}}\",\n      \"connectionNo\": \"WS-AMR-2024-01-0001\",\n      \"from\": 1704067200000,\n      \"to\": 1706745600000,\n      \"waterConnection\": {\n        \"connectionCategory\": \"RESIDENTIAL\",\n        \"connectionType\": \"Metered\"\n      }\n    }\n  ]\n}"
+        }
+      }
+    },
+    {
+      "name": "Update Demand",
+      "request": {
+        "method": "POST",
+        "url": "http://{{host}}:{{port}}/ws-calculator/waterCalculator/_updateDemand?tenantId={{tenantId}}&consumerCodes=WS-AMR-2024-01-0001",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{ \"RequestInfo\": {} }" }
+      }
+    },
+    {
+      "name": "Job Scheduler (bulk demand gen)",
+      "request": {
+        "method": "POST",
+        "url": "http://{{host}}:{{port}}/ws-calculator/waterCalculator/_jobscheduler",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"RequestInfo\": {},\n  \"bulkBillCriteria\": {\n    \"tenantId\": \"{{tenantId}}\",\n    \"billCycle\": \"2024-01\",\n    \"consumerCodes\": [\"WS-AMR-2024-01-0001\", \"WS-AMR-2024-01-0002\"]\n  }\n}"
+        }
+      }
+    },
+    {
+      "name": "Apply Adhoc Tax",
+      "request": {
+        "method": "POST",
+        "url": "http://{{host}}:{{port}}/ws-calculator/waterCalculator/_applyAdhocTax",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"RequestInfo\": {},\n  \"tenantId\": \"{{tenantId}}\",\n  \"consumerCode\": \"WS-AMR-2024-01-0001\",\n  \"adhocPenalty\": 250.0,\n  \"adhocPenaltyReason\": \"Late payment\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Create Meter Reading",
+      "request": {
+        "method": "POST",
+        "url": "http://{{host}}:{{port}}/ws-calculator/meterConnection/_create",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"RequestInfo\": { \"userInfo\": { \"uuid\": \"u1\" } },\n  \"MeterReading\": {\n    \"connectionNo\": \"WS-AMR-2024-01-0001\",\n    \"tenantId\": \"{{tenantId}}\",\n    \"billingPeriod\": \"2024-01\",\n    \"meterStatus\": \"Working\",\n    \"lastReading\": 0,\n    \"lastReadingDate\": 1704067200000,\n    \"currentReading\": 25,\n    \"currentReadingDate\": 1706745600000\n  }\n}"
+        }
+      }
+    },
+    {
+      "name": "Search Meter Readings",
+      "request": {
+        "method": "POST",
+        "url": "http://{{host}}:{{port}}/ws-calculator/meterConnection/_search?tenantId={{tenantId}}&connectionNos=WS-AMR-2024-01-0001",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{ \"RequestInfo\": {} }" }
+      }
+    }
+  ]
+}

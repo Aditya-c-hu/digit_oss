@@ -1,0 +1,35 @@
+{
+  "RequestInfo": {
+    "apiId": "ws-services",
+    "ver": "1.0",
+    "action": "_create",
+    "msgId": "20170310130900|en_IN",
+    "authToken": "test-token",
+    "userInfo": {
+      "id": 1,
+      "uuid": "a713e6ad-892d-421f-a52d-477c0ea9278a",
+      "userName": "EMPLOYEE",
+      "name": "Employee One",
+      "mobileNumber": "9999999999",
+      "type": "EMPLOYEE",
+      "tenantId": "pb.amritsar",
+      "roles": [
+        { "code": "WS_CEMP", "name": "Water Connection Employee", "tenantId": "pb.amritsar" }
+      ]
+    }
+  },
+  "WaterConnection": {
+    "tenantId": "pb.amritsar",
+    "propertyId": "REPLACE_WITH_PROPERTY_ID",
+    "applicationType": "NEW_WATER_CONNECTION",
+    "connectionType": "Non Metered",
+    "waterSource": "GROUND.BOREWELL",
+    "noOfTaps": 2,
+    "pipeSize": 15.0,
+    "proposedTaps": 2,
+    "proposedPipeSize": 15.0,
+    "channel": "CFC_COUNTER",
+    "additionalDetails": {},
+    "processInstance": { "action": "INITIATE", "comment": "Initial submit" }
+  }
+}

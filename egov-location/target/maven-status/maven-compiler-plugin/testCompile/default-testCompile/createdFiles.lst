@@ -1,0 +1,15 @@
+org\egov\boundary\domain\service\BoundaryServiceTest.class
+org\egov\boundary\domain\service\GoogleLocationServiceTest.class
+org\egov\boundary\persistence\repository\CityRepositoryTest.class
+org\egov\boundary\web\controller\HierarchyTypeControllerTest.class
+org\egov\boundary\domain\service\BoundaryTypeServiceTest.class
+org\egov\boundary\Resources.class
+org\egov\boundary\domain\service\MDMSServiceTest.class
+org\egov\boundary\domain\service\CrossHierarchyServiceTest.class
+org\egov\boundary\web\controller\CityControllerTest.class
+org\egov\boundary\web\controller\BoundaryControllerTest.class
+org\egov\boundary\web\controller\BoundaryTypeControllerTest.class
+org\egov\boundary\web\controller\GeographicalControllerTest.class
+org\egov\boundary\persistence\repository\BoundaryRepositoryTest.class
+org\egov\boundary\TestConfiguration.class
+org\egov\boundary\domain\service\CityServiceTest.class

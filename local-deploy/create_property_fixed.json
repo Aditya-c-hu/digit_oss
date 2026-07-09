@@ -1,0 +1,54 @@
+{
+  "RequestInfo": {
+    "apiId": "Rainmaker",
+    "ver": "1.0",
+    "ts": 1716370000000,
+    "action": "create",
+    "did": "1",
+    "key": "",
+    "msgId": "property-create-001",
+    "authToken": "local-dev-token",
+    "userInfo": {
+      "id": 1,
+      "uuid": "mock-user-001",
+      "userName": "citizen",
+      "name": "Ravi Kumar",
+      "mobileNumber": "9876543211",
+      "type": "CITIZEN",
+      "tenantId": "pb"
+    }
+  },
+  "Property": {
+    "tenantId": "pb.amritsar",
+    "accountId": "mock-user-001",
+    "oldPropertyId": null,
+    "propertyType": "VACANT",
+    "ownershipCategory": "INDIVIDUAL.SINGLEOWNER",
+    "creationReason": "CREATE", 
+    "source": "MUNICIPAL_RECORDS",
+    "owners": [
+      {
+        "uuid": "mock-user-001",
+        "name": "Ravi Kumar",
+        "mobileNumber": "9876543211",
+        "gender": "MALE",
+        "ownerType": "NONE",
+        "relationship": "FATHER",
+        "fatherOrHusbandName": "Suresh Kumar"
+      }
+    ],
+    "address": {
+      "tenantId": "pb.amritsar",
+      "doorNo": "12A",
+      "street": "MG Road",
+      "city": "Amritsar",
+      "locality": {
+        "code": "SUN04"
+      },
+      "pincode": "143001"
+    },
+    "landArea": 1200,
+    "superBuiltUpArea": 1000,
+    "channel": "SYSTEM"
+  }
+}

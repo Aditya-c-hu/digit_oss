@@ -1,0 +1,5 @@
+FROM eclipse-temurin:8-jre-alpine
+WORKDIR /app
+COPY target/egov-mdms-service-test-1.3.3-SNAPSHOT.jar app.jar
+EXPOSE 8094
+ENTRYPOINT ["java", "-jar", "app.jar"]

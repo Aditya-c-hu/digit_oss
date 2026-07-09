@@ -1,0 +1,22 @@
+{
+  "RequestInfo": {
+    "apiId": "ws-calculator",
+    "ver": "1.0",
+    "action": "_estimate",
+    "authToken": "test-token",
+    "userInfo": {
+      "id": 1, "uuid": "a713e6ad-892d-421f-a52d-477c0ea9278a", "userName": "EMPLOYEE", "type": "EMPLOYEE",
+      "tenantId": "pb.amritsar",
+      "roles": [{ "code": "WS_CEMP", "tenantId": "pb.amritsar" }]
+    }
+  },
+  "CalculationCriteria": [
+    {
+      "tenantId": "pb.amritsar",
+      "applicationNo": "REPLACE_WITH_APPLICATION_NO",
+      "connectionNo": null,
+      "from": 0,
+      "to": 0
+    }
+  ]
+}

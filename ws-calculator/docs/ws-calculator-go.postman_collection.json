@@ -1,0 +1,113 @@
+{
+  "info": {
+    "name": "ws-calculator (Go)",
+    "description": "Water Connection Calculator - Go port. Set {{host}} to the service base (default http://localhost:8091). All business endpoints are POST under /ws-calculator.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "host", "value": "http://localhost:8091" },
+    { "key": "tenantId", "value": "pb.amritsar" },
+    { "key": "applicationNumber", "value": "REPLACE_WITH_APPLICATION_NO" },
+    { "key": "connectionNo", "value": "REPLACE_WITH_CONNECTION_NO" }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "request": { "method": "GET", "url": "{{host}}/health" }
+    },
+    {
+      "name": "Estimate (one-time fees)",
+      "request": {
+        "method": "POST",
+        "header": [ { "key": "Content-Type", "value": "application/json" } ],
+        "url": "{{host}}/ws-calculator/waterCalculator/_estimate",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"RequestInfo\": { \"apiId\": \"ws-calculator\", \"ver\": \"1.0\", \"action\": \"_estimate\", \"authToken\": \"test-token\", \"userInfo\": { \"uuid\": \"test-uuid-1\", \"type\": \"EMPLOYEE\", \"tenantId\": \"{{tenantId}}\", \"roles\": [ { \"code\": \"WS_CEMP\", \"tenantId\": \"{{tenantId}}\" } ] } },\n  \"CalculationCriteria\": [ { \"tenantId\": \"{{tenantId}}\", \"applicationNo\": \"{{applicationNumber}}\", \"waterConnection\": { \"connectionType\": \"Non Metered\", \"connectionCategory\": \"RESIDENTIAL\", \"roadType\": \"BT\", \"roadCuttingArea\": 2.5 } } ]\n}"
+        }
+      }
+    },
+    {
+      "name": "Calculate (water charge + penalty/interest)",
+      "request": {
+        "method": "POST",
+        "header": [ { "key": "Content-Type", "value": "application/json" } ],
+        "url": "{{host}}/ws-calculator/waterCalculator/_calculate",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"RequestInfo\": { \"apiId\": \"ws-calculator\", \"ver\": \"1.0\", \"action\": \"_calculate\", \"authToken\": \"test-token\" },\n  \"CalculationCriteria\": [ { \"tenantId\": \"{{tenantId}}\", \"connectionNo\": \"{{connectionNo}}\", \"to\": 0, \"waterConnection\": { \"connectionType\": \"Metered\", \"connectionCategory\": \"RESIDENTIAL\" } } ]\n}"
+        }
+      }
+    },
+    {
+      "name": "Update Demand",
+      "request": {
+        "method": "POST",
+        "header": [ { "key": "Content-Type", "value": "application/json" } ],
+        "url": {
+          "raw": "{{host}}/ws-calculator/waterCalculator/_updateDemand?tenantId={{tenantId}}&consumerCodes={{connectionNo}}",
+          "host": [ "{{host}}" ],
+          "path": [ "ws-calculator", "waterCalculator", "_updateDemand" ],
+          "query": [
+            { "key": "tenantId", "value": "{{tenantId}}" },
+            { "key": "consumerCodes", "value": "{{connectionNo}}" }
+          ]
+        },
+        "body": { "mode": "raw", "raw": "{ \"RequestInfo\": { \"apiId\": \"ws-calculator\", \"ver\": \"1.0\", \"authToken\": \"test-token\" } }" }
+      }
+    },
+    {
+      "name": "Job Scheduler (bulk demand)",
+      "request": {
+        "method": "POST",
+        "header": [ { "key": "Content-Type", "value": "application/json" } ],
+        "url": "{{host}}/ws-calculator/waterCalculator/_jobscheduler",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"RequestInfo\": { \"apiId\": \"ws-calculator\", \"ver\": \"1.0\" },\n  \"bulkBillCriteria\": { \"tenantId\": \"{{tenantId}}\", \"billCycle\": \"monthly\", \"consumerCodes\": [ \"{{connectionNo}}\" ] }\n}"
+        }
+      }
+    },
+    {
+      "name": "Apply Adhoc Tax",
+      "request": {
+        "method": "POST",
+        "header": [ { "key": "Content-Type", "value": "application/json" } ],
+        "url": "{{host}}/ws-calculator/waterCalculator/_applyAdhocTax",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"RequestInfo\": { \"apiId\": \"ws-calculator\", \"ver\": \"1.0\" },\n  \"tenantId\": \"{{tenantId}}\",\n  \"consumerCode\": \"{{connectionNo}}\",\n  \"adhocPenalty\": 50,\n  \"adhocRebate\": 10,\n  \"adhocPenaltyReason\": \"Late\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Create Meter Reading",
+      "request": {
+        "method": "POST",
+        "header": [ { "key": "Content-Type", "value": "application/json" } ],
+        "url": "{{host}}/ws-calculator/meterConnection/_create",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"RequestInfo\": { \"apiId\": \"ws-calculator\", \"ver\": \"1.0\", \"action\": \"_create\", \"authToken\": \"test-token\", \"userInfo\": { \"uuid\": \"test-uuid-1\", \"type\": \"EMPLOYEE\", \"tenantId\": \"{{tenantId}}\" } },\n  \"MeterReading\": { \"tenantId\": \"{{tenantId}}\", \"connectionNo\": \"{{connectionNo}}\", \"billingPeriod\": \"2026-05\", \"meterStatus\": \"Working\", \"lastReading\": 100, \"lastReadingDate\": 1714521600000, \"currentReading\": 130, \"currentReadingDate\": 1717200000000 }\n}"
+        }
+      }
+    },
+    {
+      "name": "Search Meter Readings",
+      "request": {
+        "method": "POST",
+        "header": [ { "key": "Content-Type", "value": "application/json" } ],
+        "url": {
+          "raw": "{{host}}/ws-calculator/meterConnection/_search?tenantId={{tenantId}}&connectionNos={{connectionNo}}",
+          "host": [ "{{host}}" ],
+          "path": [ "ws-calculator", "meterConnection", "_search" ],
+          "query": [
+            { "key": "tenantId", "value": "{{tenantId}}" },
+            { "key": "connectionNos", "value": "{{connectionNo}}" }
+          ]
+        },
+        "body": { "mode": "raw", "raw": "{ \"RequestInfo\": { \"apiId\": \"ws-calculator\", \"ver\": \"1.0\", \"authToken\": \"test-token\" } }" }
+      }
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+services:
+  egov-workflow-v2:
+    build: .
+    container_name: egov-workflow-v2
+    ports:
+      - "8280:8280"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/devdump
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+      SPRING_FLYWAY_URL: jdbc:postgresql://postgres:5432/devdump
+      SPRING_FLYWAY_USER: postgres
+      SPRING_FLYWAY_PASSWORD: postgres
+      KAFKA_CONFIG_BOOTSTRAP_SERVER_CONFIG: kafka:9092
+      EGOV_MDMS_HOST: http://egov-mdms-service:8094/
+      EGOV_USER_HOST: http://egov-user:8081/
+    depends_on:
+      - postgres
+      - kafka
+      - egov-mdms-service
+      - egov-user
+
+  egov-mdms-service:
+    build: ../egov-mdms-service
+    container_name: egov-mdms-service
+    ports:
+      - "8094:8094"
+    environment:
+      SERVER_PORT: "8094"
+      EGOV_MDMS_CONF_PATH: /app/egov-mdms-data/data
+      MASTERS_CONFIG_URL: https://raw.githubusercontent.com/egovernments/egov-services/master/core/egov-mdms-create/src/main/resources/master-config.json
+    depends_on:
+      - postgres
+      - kafka
+
+  egov-user:
+    build: ../egov-user
+    container_name: egov-user
+    ports:
+      - "8081:8081"
+    environment:
+      SERVER_PORT: "8081"
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/devdump
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+      FLYWAY_URL: jdbc:postgresql://postgres:5432/devdump
+      FLYWAY_USER: postgres
+      FLYWAY_PASSWORD: postgres
+      SPRING_REDIS_HOST: redis
+      SPRING_REDIS_PORT: "6379"
+      KAFKA_CONFIG_BOOTSTRAP_SERVER_CONFIG: kafka:9092
+      EGOV_MDMS_HOST: http://egov-mdms-service:8094
+    depends_on:
+      - postgres
+      - kafka
+      - redis
+      - egov-mdms-service
+
+  redis:
+    image: redis:alpine
+    container_name: workflow-redis
+    ports:
+      - "6379:6379"
+
+  postgres:
+    image: postgres:12-alpine
+    container_name: workflow-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: devdump
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  zookeeper:
+    image: zookeeper:3.8.1
+    container_name: workflow-zookeeper
+    ports:
+      - "2181:2181"
+    environment:
+      - ZOO_PORT=2181
+      
+  kafka:
+    image: wurstmeister/kafka:latest
+    container_name: workflow-kafka
+    ports:
+      - "9092:9092"
+    environment:
+      - KAFKA_BROKER_ID=1
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092
+      - KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092
+    depends_on:
+      - zookeeper
+
+volumes:
+  postgres_data:

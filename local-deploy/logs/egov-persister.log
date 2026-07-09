@@ -1,0 +1,370 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::       (v2.2.13.RELEASE)
+
+2026-05-21 17:49:46.178+0530  INFO --- [      main] o.egov.EgovPersistApplication            --  : Starting EgovPersistApplication v1.1.5-SNAPSHOT on LAPTOP-Q2EQEE4F with PID 25160 (C:\Users\Aditya\Downloads\DIGIT-OSS-master\municipal-services-go\egov-persister\target\egov-persister-1.1.5-SNAPSHOT.jar started by Aditya in C:\Users\Aditya\Downloads\DIGIT-OSS-master\municipal-services-go\local-deploy) 
+2026-05-21 17:49:46.189+0530  INFO --- [      main] o.egov.EgovPersistApplication            --  : No active profile set, falling back to default profiles: default 
+2026-05-21 17:50:05.163+0530  INFO --- [      main] o.s.b.w.e.t.TomcatWebServer              --  : Tomcat initialized with port(s): 8082 (http) 
+2026-05-21 17:50:05.193+0530  INFO --- [      main] o.a.c.core.StandardService               --  : Starting service [Tomcat] 
+2026-05-21 17:50:05.194+0530  INFO --- [      main] o.a.c.core.StandardEngine                --  : Starting Servlet engine: [Apache Tomcat/9.0.41] 
+2026-05-21 17:50:05.514+0530  INFO --- [      main] o.a.c.c.C.[.[.[/common-persist]          --  : Initializing Spring embedded WebApplicationContext 
+2026-05-21 17:50:05.515+0530  INFO --- [      main] w.s.c.ServletWebServerApplicationContext --  : Root WebApplicationContext: initialization completed in 19095 ms 
+2026-05-21 17:50:05.670+0530  INFO --- [      main] o.c.s.w.s.ServerTracingAutoConfiguration --  : Creating FilterRegistrationBean bean with TracingFilter mapped to [/*], skip pattern is "/api-docs.*|/autoconfig|/configprops|/dump|/health|/info|/metrics.*|/mappings|/swagger.*|.*.png|.*.css|.*.js|.*.html|/favicon.ico|/hystrix.stream|/prometheus|/manage/*" 
+2026-05-21 17:50:06.918+0530  INFO --- [      main] o.egov.EgovPersistApplication            --  : ====================== EGOV PERSISTER ====================== 
+2026-05-21 17:50:06.918+0530  INFO --- [      main] o.egov.EgovPersistApplication            --  : LOADING CONFIGS: C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/local-deploy/configs/egov-persister 
+2026-05-21 17:50:06.959+0530  INFO --- [      main] o.egov.EgovPersistApplication            --  : File assessment-persister.yml 
+2026-05-21 17:50:06.960+0530  INFO --- [      main] o.egov.EgovPersistApplication            --  : File egov-pg-service-persister.yml 
+2026-05-21 17:50:06.961+0530  INFO --- [      main] o.egov.EgovPersistApplication            --  : File egov-user-event-persister.yml 
+2026-05-21 17:50:06.969+0530  INFO --- [      main] o.egov.EgovPersistApplication            --  : File egov-workflow-v2-persister.yml 
+2026-05-21 17:50:06.969+0530  INFO --- [      main] o.egov.EgovPersistApplication            --  : File hrms-employee-persister.yml 
+2026-05-21 17:50:06.969+0530  INFO --- [      main] o.egov.EgovPersistApplication            --  : File persister.yml 
+2026-05-21 17:50:06.970+0530  INFO --- [      main] o.egov.EgovPersistApplication            --  : File pgr.v3.yml 
+2026-05-21 17:50:06.970+0530  INFO --- [      main] o.egov.EgovPersistApplication            --  : File property-services-registry.yml 
+2026-05-21 17:50:06.970+0530  INFO --- [      main] o.egov.EgovPersistApplication            --  : File property-services.yml 
+2026-05-21 17:50:06.971+0530  INFO --- [      main] o.egov.EgovPersistApplication            --  : File pt-calculator-v2-persister.yml 
+2026-05-21 17:50:06.971+0530  INFO --- [      main] o.egov.EgovPersistApplication            --  : File pt-drafts.yml 
+2026-05-21 17:50:06.972+0530  INFO --- [      main] o.egov.EgovPersistApplication            --  : File pt-persist.yml 
+2026-05-21 17:50:06.972+0530  INFO --- [      main] o.egov.EgovPersistApplication            --  : File tl-billing-slab-persister.yml 
+2026-05-21 17:50:06.972+0530  INFO --- [      main] o.egov.EgovPersistApplication            --  : File user-service-persist.yml 
+2026-05-21 17:50:06.973+0530  INFO --- [      main] o.egov.EgovPersistApplication            --  :  These are all the files [file:/C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/local-deploy/configs/egov-persister/assessment-persister.yml, file:/C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/local-deploy/configs/egov-persister/egov-pg-service-persister.yml, file:/C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/local-deploy/configs/egov-persister/egov-user-event-persister.yml, file:/C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/local-deploy/configs/egov-persister/egov-workflow-v2-persister.yml, file:/C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/local-deploy/configs/egov-persister/hrms-employee-persister.yml, file:/C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/local-deploy/configs/egov-persister/persister.yml, file:/C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/local-deploy/configs/egov-persister/pgr.v3.yml, file:/C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/local-deploy/configs/egov-persister/property-services-registry.yml, file:/C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/local-deploy/configs/egov-persister/property-services.yml, file:/C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/local-deploy/configs/egov-persister/pt-calculator-v2-persister.yml, file:/C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/local-deploy/configs/egov-persister/pt-drafts.yml, file:/C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/local-deploy/configs/egov-persister/pt-persist.yml, file:/C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/local-deploy/configs/egov-persister/tl-billing-slab-persister.yml, file:/C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/local-deploy/configs/egov-persister/user-service-persist.yml] 
+2026-05-21 17:50:06.973+0530  INFO --- [      main] o.egov.EgovPersistApplication            --  : Attempting to load config: file:/C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/local-deploy/configs/egov-persister/assessment-persister.yml 
+2026-05-21 17:50:07.750+0530  INFO --- [      main] o.egov.EgovPersistApplication            --  : Attempting to load config: file:/C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/local-deploy/configs/egov-persister/egov-pg-service-persister.yml 
+2026-05-21 17:50:07.756+0530  INFO --- [      main] o.egov.EgovPersistApplication            --  : Attempting to load config: file:/C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/local-deploy/configs/egov-persister/egov-user-event-persister.yml 
+2026-05-21 17:50:07.775+0530  INFO --- [      main] o.egov.EgovPersistApplication            --  : Attempting to load config: file:/C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/local-deploy/configs/egov-persister/egov-workflow-v2-persister.yml 
+2026-05-21 17:50:07.784+0530  INFO --- [      main] o.egov.EgovPersistApplication            --  : Attempting to load config: file:/C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/local-deploy/configs/egov-persister/hrms-employee-persister.yml 
+2026-05-21 17:50:07.802+0530  INFO --- [      main] o.egov.EgovPersistApplication            --  : Attempting to load config: file:/C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/local-deploy/configs/egov-persister/persister.yml 
+2026-05-21 17:50:07.807+0530  INFO --- [      main] o.egov.EgovPersistApplication            --  : Attempting to load config: file:/C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/local-deploy/configs/egov-persister/pgr.v3.yml 
+2026-05-21 17:50:07.819+0530  INFO --- [      main] o.egov.EgovPersistApplication            --  : Attempting to load config: file:/C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/local-deploy/configs/egov-persister/property-services-registry.yml 
+2026-05-21 17:50:07.832+0530  INFO --- [      main] o.egov.EgovPersistApplication            --  : Attempting to load config: file:/C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/local-deploy/configs/egov-persister/property-services.yml 
+2026-05-21 17:50:07.850+0530  INFO --- [      main] o.egov.EgovPersistApplication            --  : Attempting to load config: file:/C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/local-deploy/configs/egov-persister/pt-calculator-v2-persister.yml 
+2026-05-21 17:50:07.853+0530  INFO --- [      main] o.egov.EgovPersistApplication            --  : Attempting to load config: file:/C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/local-deploy/configs/egov-persister/pt-drafts.yml 
+2026-05-21 17:50:07.856+0530  INFO --- [      main] o.egov.EgovPersistApplication            --  : Attempting to load config: file:/C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/local-deploy/configs/egov-persister/pt-persist.yml 
+2026-05-21 17:50:07.888+0530  INFO --- [      main] o.egov.EgovPersistApplication            --  : Attempting to load config: file:/C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/local-deploy/configs/egov-persister/tl-billing-slab-persister.yml 
+2026-05-21 17:50:07.893+0530  INFO --- [      main] o.egov.EgovPersistApplication            --  : Attempting to load config: file:/C:/Users/Aditya/Downloads/DIGIT-OSS-master/municipal-services-go/local-deploy/configs/egov-persister/user-service-persist.yml 
+2026-05-21 17:50:07.899+0530  INFO --- [      main] o.egov.EgovPersistApplication            --  : ====================== CONFIGS LOADED SUCCESSFULLY! ======================  
+2026-05-21 17:50:10.244+0530  INFO --- [      main] o.e.i.p.c.PersisterConsumerConfig        --  : Topics subscribed for single listner: [update-pt-drafts, update-pt-property, update-pgr-service, user-update-topic, save-index-jobs, save-pgr-service, save-user-events, save-property-registry, userotp-save-topic, update-tl-billingslab, userpassword-update-topic, save-pt-property, save-hrms-employee, save-pt-billingslab, update-user-events, save-wf-businessservice, save-pt-assessment, update-pg-txns, save-pt-drafts, save-pg-txns, update-pt-billingslab, user-events-lat, update-property-doc-registry, save-wf-transitions, update-pg-txns-dump, update-index-jobs, property-create-validated, update-property-registry, user-save-topic, update-hrms-employee, save-tl-billingslab, save-pg-txns-dump, update-wf-businessservice, update-pt-assessment] 
+2026-05-21 17:50:10.382+0530  INFO --- [      main] o.e.i.p.c.PersisterConsumerConfig        --  : Custom KafkaListenerContainerFactory built... 
+2026-05-21 17:50:10.420+0530  INFO --- [      main] o.e.i.p.c.PersisterConsumerConfig        --  : Custom KafkaListenerContainer built... 
+2026-05-21 17:50:10.807+0530  INFO --- [      main] o.a.k.c.c.ConsumerConfig                 --  : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 100
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = default
+	client.id = 
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = egov-infra-persist
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = [org.egov.tracer.kafka.KafkaTemplateLoggingInterceptors]
+	internal.leave.group.on.close = true
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	session.timeout.ms = 15000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = https
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.ErrorHandlingDeserializer2
+ 
+2026-05-21 17:50:11.432+0530  WARN --- [      main] o.a.k.c.c.ConsumerConfig                 --  : The configuration 'spring.json.use.type.headers' was supplied but isn't a known config. 
+2026-05-21 17:50:11.444+0530  INFO --- [      main] o.a.k.c.utils.AppInfoParser              --  : Kafka version: 2.3.1 
+2026-05-21 17:50:11.444+0530  INFO --- [      main] o.a.k.c.utils.AppInfoParser              --  : Kafka commitId: 18a913733fb71c01 
+2026-05-21 17:50:11.444+0530  INFO --- [      main] o.a.k.c.utils.AppInfoParser              --  : Kafka startTimeMs: 1779366011438 
+2026-05-21 17:50:11.497+0530  INFO --- [      main] o.a.k.c.consumer.KafkaConsumer           --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Subscribed to topic(s): update-pt-drafts, update-pt-property, update-pgr-service, user-update-topic, save-index-jobs, save-pgr-service, save-user-events, save-property-registry, userotp-save-topic, update-tl-billingslab, userpassword-update-topic, save-pt-property, save-hrms-employee, save-pt-billingslab, update-user-events, save-wf-businessservice, save-pt-assessment, update-pg-txns, save-pt-drafts, save-pg-txns, update-pt-billingslab, user-events-lat, update-property-doc-registry, save-wf-transitions, update-pg-txns-dump, update-index-jobs, property-create-validated, update-property-registry, user-save-topic, update-hrms-employee, save-tl-billingslab, save-pg-txns-dump, update-wf-businessservice, update-pt-assessment 
+2026-05-21 17:50:11.501+0530  INFO --- [      main] o.s.s.c.ThreadPoolTaskScheduler          --  : Initializing ExecutorService 
+2026-05-21 17:50:11.560+0530  INFO --- [      main] o.e.i.p.c.PersisterConsumerConfig        --  : Custom KakfaListenerContainer STARTED... 
+2026-05-21 17:50:13.751+0530  INFO --- [      main] o.c.s.w.s.ServerTracingAutoConfiguration --  : Creating WebMvcConfigurerAdapter bean with class io.opentracing.contrib.spring.web.interceptor.TracingHandlerInterceptor 
+2026-05-21 17:50:13.864+0530  INFO --- [tainer-C-1] o.a.kafka.clients.Metadata               --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Cluster ID: Some(MkU3OEVBNTcwNTJENDM2Qk) 
+2026-05-21 17:50:14.102+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.AbstractCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null) 
+2026-05-21 17:50:14.110+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Revoking previously assigned partitions [] 
+2026-05-21 17:50:14.111+0530  INFO --- [tainer-C-1] o.s.k.l.KafkaMessageListenerContainer    --  : egov-infra-persist: partitions revoked: [] 
+2026-05-21 17:50:14.112+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.AbstractCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] (Re-)joining group 
+2026-05-21 17:50:14.432+0530  INFO --- [      main] o.s.s.c.ThreadPoolTaskExecutor           --  : Initializing ExecutorService 'applicationTaskExecutor' 
+2026-05-21 17:50:15.648+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.AbstractCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] (Re-)joining group 
+2026-05-21 17:50:17.126+0530  INFO --- [      main] o.s.b.a.e.w.EndpointLinksResolver        --  : Exposing 2 endpoint(s) beneath base path '/actuator' 
+2026-05-21 17:50:17.330+0530  INFO --- [      main] o.s.b.w.e.t.TomcatWebServer              --  : Tomcat started on port(s): 8082 (http) with context path '/common-persist' 
+2026-05-21 17:50:17.364+0530  INFO --- [      main] o.egov.EgovPersistApplication            --  : Started EgovPersistApplication in 34.576 seconds (JVM running for 36.523) 
+2026-05-21 17:50:20.279+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.AbstractCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Successfully joined group with generation 5 
+2026-05-21 17:50:20.288+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Setting newly assigned partitions: save-pg-txns-0, update-pt-drafts-0, save-pgr-service-0, update-pt-property-0, save-index-jobs-0, user-update-topic-0, save-property-registry-0, save-hrms-employee-0, userotp-save-topic-0, save-pt-property-0, update-tl-billingslab-0, userpassword-update-topic-0, save-user-events-0, save-pt-billingslab-0, update-user-events-0, save-wf-businessservice-0, update-pg-txns-0, save-pt-drafts-0, save-pt-assessment-0, update-pt-billingslab-0, user-events-lat-0, update-property-doc-registry-0, save-wf-transitions-0, update-index-jobs-0, update-pg-txns-dump-0, update-pt-assessment-0, update-pgr-service-0, property-create-validated-0, user-save-topic-0, update-property-registry-0, update-hrms-employee-0, save-tl-billingslab-0, save-pg-txns-dump-0, update-wf-businessservice-0 
+2026-05-21 17:50:20.290+0530  INFO --- [tainer-C-1] o.s.k.l.KafkaMessageListenerContainer    --  : egov-infra-persist: partitions assigned: [save-pg-txns-0, update-pt-drafts-0, save-pgr-service-0, update-pt-property-0, save-index-jobs-0, user-update-topic-0, save-property-registry-0, save-hrms-employee-0, userotp-save-topic-0, save-pt-property-0, update-tl-billingslab-0, userpassword-update-topic-0, save-user-events-0, save-pt-billingslab-0, update-user-events-0, save-wf-businessservice-0, update-pg-txns-0, save-pt-drafts-0, save-pt-assessment-0, update-pt-billingslab-0, user-events-lat-0, update-property-doc-registry-0, save-wf-transitions-0, update-index-jobs-0, update-pg-txns-dump-0, update-pt-assessment-0, update-pgr-service-0, property-create-validated-0, user-save-topic-0, update-property-registry-0, update-hrms-employee-0, save-tl-billingslab-0, save-pg-txns-dump-0, update-wf-businessservice-0] 
+2026-05-21 17:50:21.621+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Setting offset for partition save-pg-txns-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=localhost:9092 (id: 1 rack: null), epoch=0}} 
+2026-05-21 17:50:21.623+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Setting offset for partition update-pt-drafts-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=localhost:9092 (id: 1 rack: null), epoch=0}} 
+2026-05-21 17:50:21.623+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Setting offset for partition save-pgr-service-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=localhost:9092 (id: 1 rack: null), epoch=0}} 
+2026-05-21 17:50:21.624+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Setting offset for partition update-pt-property-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=localhost:9092 (id: 1 rack: null), epoch=0}} 
+2026-05-21 17:50:21.624+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Setting offset for partition save-index-jobs-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=localhost:9092 (id: 1 rack: null), epoch=0}} 
+2026-05-21 17:50:21.624+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Setting offset for partition user-update-topic-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=localhost:9092 (id: 1 rack: null), epoch=0}} 
+2026-05-21 17:50:21.624+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Setting offset for partition save-hrms-employee-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=localhost:9092 (id: 1 rack: null), epoch=0}} 
+2026-05-21 17:50:21.624+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Setting offset for partition save-property-registry-0 to the committed offset FetchPosition{offset=4, offsetEpoch=Optional[14], currentLeader=LeaderAndEpoch{leader=localhost:9092 (id: 1 rack: null), epoch=14}} 
+2026-05-21 17:50:21.626+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Setting offset for partition userotp-save-topic-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=localhost:9092 (id: 1 rack: null), epoch=0}} 
+2026-05-21 17:50:21.626+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Setting offset for partition save-pt-property-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=localhost:9092 (id: 1 rack: null), epoch=0}} 
+2026-05-21 17:50:21.626+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Setting offset for partition userpassword-update-topic-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=localhost:9092 (id: 1 rack: null), epoch=0}} 
+2026-05-21 17:50:21.626+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Setting offset for partition update-tl-billingslab-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=localhost:9092 (id: 1 rack: null), epoch=0}} 
+2026-05-21 17:50:21.626+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Setting offset for partition save-user-events-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=localhost:9092 (id: 1 rack: null), epoch=0}} 
+2026-05-21 17:50:21.626+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Setting offset for partition save-wf-businessservice-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=localhost:9092 (id: 1 rack: null), epoch=0}} 
+2026-05-21 17:50:21.627+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Setting offset for partition save-pt-billingslab-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=localhost:9092 (id: 1 rack: null), epoch=0}} 
+2026-05-21 17:50:21.627+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Setting offset for partition update-user-events-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=localhost:9092 (id: 1 rack: null), epoch=0}} 
+2026-05-21 17:50:21.627+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Setting offset for partition update-pg-txns-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=localhost:9092 (id: 1 rack: null), epoch=14}} 
+2026-05-21 17:50:21.627+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Setting offset for partition save-pt-drafts-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=localhost:9092 (id: 1 rack: null), epoch=0}} 
+2026-05-21 17:50:21.627+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Setting offset for partition save-pt-assessment-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=localhost:9092 (id: 1 rack: null), epoch=14}} 
+2026-05-21 17:50:21.627+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Setting offset for partition update-pt-billingslab-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=localhost:9092 (id: 1 rack: null), epoch=0}} 
+2026-05-21 17:50:21.628+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Setting offset for partition user-events-lat-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=localhost:9092 (id: 1 rack: null), epoch=0}} 
+2026-05-21 17:50:21.628+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Setting offset for partition update-property-doc-registry-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=localhost:9092 (id: 1 rack: null), epoch=0}} 
+2026-05-21 17:50:21.628+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Setting offset for partition save-wf-transitions-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=localhost:9092 (id: 1 rack: null), epoch=0}} 
+2026-05-21 17:50:21.628+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Setting offset for partition update-index-jobs-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=localhost:9092 (id: 1 rack: null), epoch=0}} 
+2026-05-21 17:50:21.628+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Setting offset for partition update-pg-txns-dump-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=localhost:9092 (id: 1 rack: null), epoch=0}} 
+2026-05-21 17:50:21.628+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Setting offset for partition update-pt-assessment-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=localhost:9092 (id: 1 rack: null), epoch=14}} 
+2026-05-21 17:50:21.629+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Setting offset for partition update-pgr-service-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=localhost:9092 (id: 1 rack: null), epoch=0}} 
+2026-05-21 17:50:21.629+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Setting offset for partition property-create-validated-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=localhost:9092 (id: 1 rack: null), epoch=0}} 
+2026-05-21 17:50:21.629+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Setting offset for partition user-save-topic-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=localhost:9092 (id: 1 rack: null), epoch=0}} 
+2026-05-21 17:50:21.629+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Setting offset for partition update-property-registry-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=localhost:9092 (id: 1 rack: null), epoch=14}} 
+2026-05-21 17:50:21.629+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Setting offset for partition update-hrms-employee-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=localhost:9092 (id: 1 rack: null), epoch=0}} 
+2026-05-21 17:50:21.630+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Setting offset for partition save-tl-billingslab-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=localhost:9092 (id: 1 rack: null), epoch=0}} 
+2026-05-21 17:50:21.630+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Setting offset for partition update-wf-businessservice-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=localhost:9092 (id: 1 rack: null), epoch=0}} 
+2026-05-21 17:50:21.630+0530  INFO --- [tainer-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=egov-infra-persist] Setting offset for partition save-pg-txns-dump-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=localhost:9092 (id: 1 rack: null), epoch=0}} 
+2026-05-21 17:51:21.703+0530  INFO --- [tainer-C-1] o.e.t.k.KafkaTemplateLoggingInterceptors --  : Received message from topic: save-property-registry, partition: save-property-registry, with key: null 
+2026-05-21 17:51:21.755+0530  INFO --- [tainer-C-1] c.z.hikari.HikariDataSource              --  : HikariPool-1 - Starting... 
+2026-05-21 17:51:22.176+0530  INFO --- [tainer-C-1] c.z.hikari.HikariDataSource              --  : HikariPool-1 - Start completed. 
+2026-05-21 17:51:22.445+0530  INFO --- [tainer-C-1] o.e.infra.persist.utils.Utils            --  : Version present in API request is: 1.0 
+2026-05-21 17:51:22.472+0530  INFO --- [tainer-C-1] o.e.i.p.service.PersistService           --  : 1 applicable configs found! 
+2026-05-21 17:51:22.482+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_pt_property_audit (audituuid, propertyid, property, auditcreatedtime) VALUES ((select nextval('seq_eg_pt_registry_audit')), ?, ?, (SELECT extract(epoch from now()))); 
+2026-05-21 17:51:22.579+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 1 row(s) to DB! 
+2026-05-21 17:51:22.583+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_pt_property (id, propertyid, tenantid, surveyid, accountid, oldpropertyid, status, acknowldgementnumber, propertytype, ownershipcategory, usagecategory, creationreason, nooffloors, landarea, superbuiltuparea, linkedproperties, source,  channel, createdby, createdtime, lastmodifiedby, lastmodifiedtime, additionaldetails) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); 
+2026-05-21 17:51:22.610+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 1 row(s) to DB! 
+2026-05-21 17:51:22.611+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_pt_owner(ownerinfouuid, tenantid, propertyid, userid, status, isprimaryowner, ownertype, ownershippercentage, institutionid, relationship, createdby, createdtime, lastmodifiedby, lastmodifiedtime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); 
+2026-05-21 17:51:22.626+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 1 row(s) to DB! 
+2026-05-21 17:51:22.629+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_pt_address(tenantid, id, propertyid, doorno, plotno, buildingname, street, landmark, city, pincode, locality, district, region, state, country, latitude, longitude, createdby, createdtime, lastmodifiedby, lastmodifiedtime, additionaldetails) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); 
+2026-05-21 17:51:22.655+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 1 row(s) to DB! 
+2026-05-21 17:51:22.697+0530  INFO --- [tainer-C-1] o.a.k.c.p.ProducerConfig                 --  : ProducerConfig values: 
+	acks = all
+	batch.size = 16384
+	bootstrap.servers = [localhost:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = default
+	client.id = 
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = false
+	interceptor.classes = [org.egov.tracer.kafka.KafkaTemplateLoggingInterceptors]
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = https
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.springframework.kafka.support.serializer.JsonSerializer
+ 
+2026-05-21 17:51:22.760+0530  INFO --- [tainer-C-1] o.a.k.c.utils.AppInfoParser              --  : Kafka version: 2.3.1 
+2026-05-21 17:51:22.761+0530  INFO --- [tainer-C-1] o.a.k.c.utils.AppInfoParser              --  : Kafka commitId: 18a913733fb71c01 
+2026-05-21 17:51:22.761+0530  INFO --- [tainer-C-1] o.a.k.c.utils.AppInfoParser              --  : Kafka startTimeMs: 1779366082759 
+2026-05-21 17:51:22.767+0530  INFO --- [tainer-C-1] o.e.t.k.KafkaTemplateLoggingInterceptors --  : Sending message to topic: process-audit-records, partition: null with key: null . 
+2026-05-21 17:51:22.781+0530  INFO --- [producer-1] o.a.kafka.clients.Metadata               --  : [Producer clientId=producer-1] Cluster ID: Some(MkU3OEVBNTcwNTJENDM2Qk) 
+2026-05-21 17:53:06.060+0530  INFO --- [tainer-C-1] o.e.t.k.KafkaTemplateLoggingInterceptors --  : Received message from topic: save-property-registry, partition: save-property-registry, with key: null 
+2026-05-21 17:53:06.072+0530  INFO --- [tainer-C-1] o.e.infra.persist.utils.Utils            --  : Version present in API request is: 1.0 
+2026-05-21 17:53:06.073+0530  INFO --- [tainer-C-1] o.e.i.p.service.PersistService           --  : 1 applicable configs found! 
+2026-05-21 17:53:06.073+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_pt_property_audit (audituuid, propertyid, property, auditcreatedtime) VALUES ((select nextval('seq_eg_pt_registry_audit')), ?, ?, (SELECT extract(epoch from now()))); 
+2026-05-21 17:53:06.085+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 1 row(s) to DB! 
+2026-05-21 17:53:06.087+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_pt_property (id, propertyid, tenantid, surveyid, accountid, oldpropertyid, status, acknowldgementnumber, propertytype, ownershipcategory, usagecategory, creationreason, nooffloors, landarea, superbuiltuparea, linkedproperties, source,  channel, createdby, createdtime, lastmodifiedby, lastmodifiedtime, additionaldetails) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); 
+2026-05-21 17:53:06.102+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 1 row(s) to DB! 
+2026-05-21 17:53:06.104+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_pt_owner(ownerinfouuid, tenantid, propertyid, userid, status, isprimaryowner, ownertype, ownershippercentage, institutionid, relationship, createdby, createdtime, lastmodifiedby, lastmodifiedtime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); 
+2026-05-21 17:53:06.118+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 1 row(s) to DB! 
+2026-05-21 17:53:06.121+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_pt_address(tenantid, id, propertyid, doorno, plotno, buildingname, street, landmark, city, pincode, locality, district, region, state, country, latitude, longitude, createdby, createdtime, lastmodifiedby, lastmodifiedtime, additionaldetails) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); 
+2026-05-21 17:53:06.150+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 1 row(s) to DB! 
+2026-05-21 17:53:06.158+0530  INFO --- [tainer-C-1] o.e.t.k.KafkaTemplateLoggingInterceptors --  : Sending message to topic: process-audit-records, partition: null with key: null . 
+2026-05-21 17:54:39.005+0530  INFO --- [tainer-C-1] o.e.t.k.KafkaTemplateLoggingInterceptors --  : Received message from topic: save-property-registry, partition: save-property-registry, with key: null 
+2026-05-21 17:54:39.011+0530  INFO --- [tainer-C-1] o.e.infra.persist.utils.Utils            --  : Version present in API request is: 1.0 
+2026-05-21 17:54:39.012+0530  INFO --- [tainer-C-1] o.e.i.p.service.PersistService           --  : 1 applicable configs found! 
+2026-05-21 17:54:39.013+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_pt_property_audit (audituuid, propertyid, property, auditcreatedtime) VALUES ((select nextval('seq_eg_pt_registry_audit')), ?, ?, (SELECT extract(epoch from now()))); 
+2026-05-21 17:54:39.016+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 1 row(s) to DB! 
+2026-05-21 17:54:39.018+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_pt_property (id, propertyid, tenantid, surveyid, accountid, oldpropertyid, status, acknowldgementnumber, propertytype, ownershipcategory, usagecategory, creationreason, nooffloors, landarea, superbuiltuparea, linkedproperties, source,  channel, createdby, createdtime, lastmodifiedby, lastmodifiedtime, additionaldetails) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); 
+2026-05-21 17:54:39.029+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 1 row(s) to DB! 
+2026-05-21 17:54:39.030+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_pt_owner(ownerinfouuid, tenantid, propertyid, userid, status, isprimaryowner, ownertype, ownershippercentage, institutionid, relationship, createdby, createdtime, lastmodifiedby, lastmodifiedtime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); 
+2026-05-21 17:54:39.038+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 1 row(s) to DB! 
+2026-05-21 17:54:39.040+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_pt_address(tenantid, id, propertyid, doorno, plotno, buildingname, street, landmark, city, pincode, locality, district, region, state, country, latitude, longitude, createdby, createdtime, lastmodifiedby, lastmodifiedtime, additionaldetails) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); 
+2026-05-21 17:54:39.062+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 1 row(s) to DB! 
+2026-05-21 17:54:39.068+0530  INFO --- [tainer-C-1] o.e.t.k.KafkaTemplateLoggingInterceptors --  : Sending message to topic: process-audit-records, partition: null with key: null . 
+2026-05-21 17:56:11.519+0530  INFO --- [tainer-C-1] o.e.t.k.KafkaTemplateLoggingInterceptors --  : Received message from topic: save-wf-businessservice, partition: save-wf-businessservice, with key: null 
+2026-05-21 17:56:11.534+0530  INFO --- [tainer-C-1] o.e.infra.persist.utils.Utils            --  : Version not present in API request, falling back to default version: 1.0.0 
+2026-05-21 17:56:11.536+0530  INFO --- [tainer-C-1] o.e.i.p.service.PersistService           --  : 1 applicable configs found! 
+2026-05-21 17:56:11.537+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_wf_businessservice_v2(businessServiceSla, businessservice, business, tenantid, uuid, geturi, posturi, createdby, createdtime, lastmodifiedby, lastmodifiedtime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); 
+2026-05-21 17:56:11.561+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 1 row(s) to DB! 
+2026-05-21 17:56:11.651+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_wf_state_v2(seq, uuid, tenantid, businessserviceid, state,applicationStatus,sla,docuploadrequired, isstartstate, isterminatestate,isStateUpdatable, createdby, createdtime, lastmodifiedby, lastmodifiedtime) VALUES (nextval('seq_eg_wf_state_v2'),? , ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); 
+2026-05-21 17:56:11.694+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 10 row(s) to DB! 
+2026-05-21 17:56:11.750+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_wf_action_v2( uuid,tenantId,active, currentState, action, nextstate, roles, createdby, createdtime, lastmodifiedby, lastmodifiedtime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); 
+2026-05-21 17:56:11.766+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 12 row(s) to DB! 
+2026-05-21 17:56:11.772+0530  INFO --- [tainer-C-1] o.e.t.k.KafkaTemplateLoggingInterceptors --  : Sending message to topic: process-audit-records, partition: null with key: null . 
+2026-05-21 17:56:23.209+0530  INFO --- [tainer-C-1] o.e.t.k.KafkaTemplateLoggingInterceptors --  : Received message from topic: save-property-registry, partition: save-property-registry, with key: null 
+2026-05-21 17:56:23.214+0530  INFO --- [tainer-C-1] o.e.infra.persist.utils.Utils            --  : Version present in API request is: 1.0 
+2026-05-21 17:56:23.215+0530  INFO --- [tainer-C-1] o.e.i.p.service.PersistService           --  : 1 applicable configs found! 
+2026-05-21 17:56:23.215+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_pt_property_audit (audituuid, propertyid, property, auditcreatedtime) VALUES ((select nextval('seq_eg_pt_registry_audit')), ?, ?, (SELECT extract(epoch from now()))); 
+2026-05-21 17:56:23.228+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 1 row(s) to DB! 
+2026-05-21 17:56:23.229+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_pt_property (id, propertyid, tenantid, surveyid, accountid, oldpropertyid, status, acknowldgementnumber, propertytype, ownershipcategory, usagecategory, creationreason, nooffloors, landarea, superbuiltuparea, linkedproperties, source,  channel, createdby, createdtime, lastmodifiedby, lastmodifiedtime, additionaldetails) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); 
+2026-05-21 17:56:23.243+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 1 row(s) to DB! 
+2026-05-21 17:56:23.244+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_pt_owner(ownerinfouuid, tenantid, propertyid, userid, status, isprimaryowner, ownertype, ownershippercentage, institutionid, relationship, createdby, createdtime, lastmodifiedby, lastmodifiedtime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); 
+2026-05-21 17:56:23.253+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 1 row(s) to DB! 
+2026-05-21 17:56:23.254+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_pt_address(tenantid, id, propertyid, doorno, plotno, buildingname, street, landmark, city, pincode, locality, district, region, state, country, latitude, longitude, createdby, createdtime, lastmodifiedby, lastmodifiedtime, additionaldetails) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); 
+2026-05-21 17:56:23.275+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 1 row(s) to DB! 
+2026-05-21 17:56:23.281+0530  INFO --- [tainer-C-1] o.e.t.k.KafkaTemplateLoggingInterceptors --  : Sending message to topic: process-audit-records, partition: null with key: null . 
+2026-05-21 17:57:47.172+0530  INFO --- [tainer-C-1] o.e.t.k.KafkaTemplateLoggingInterceptors --  : Received message from topic: save-wf-businessservice, partition: save-wf-businessservice, with key: null 
+2026-05-21 17:57:47.176+0530  INFO --- [tainer-C-1] o.e.infra.persist.utils.Utils            --  : Version not present in API request, falling back to default version: 1.0.0 
+2026-05-21 17:57:47.176+0530  INFO --- [tainer-C-1] o.e.i.p.service.PersistService           --  : 1 applicable configs found! 
+2026-05-21 17:57:47.177+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_wf_businessservice_v2(businessServiceSla, businessservice, business, tenantid, uuid, geturi, posturi, createdby, createdtime, lastmodifiedby, lastmodifiedtime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); 
+2026-05-21 17:57:47.184+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 1 row(s) to DB! 
+2026-05-21 17:57:47.190+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_wf_state_v2(seq, uuid, tenantid, businessserviceid, state,applicationStatus,sla,docuploadrequired, isstartstate, isterminatestate,isStateUpdatable, createdby, createdtime, lastmodifiedby, lastmodifiedtime) VALUES (nextval('seq_eg_wf_state_v2'),? , ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); 
+2026-05-21 17:57:47.209+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 9 row(s) to DB! 
+2026-05-21 17:57:47.218+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_wf_action_v2( uuid,tenantId,active, currentState, action, nextstate, roles, createdby, createdtime, lastmodifiedby, lastmodifiedtime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); 
+2026-05-21 17:57:47.222+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 10 row(s) to DB! 
+2026-05-21 17:57:47.228+0530  INFO --- [tainer-C-1] o.e.t.k.KafkaTemplateLoggingInterceptors --  : Sending message to topic: process-audit-records, partition: null with key: null . 
+2026-05-21 17:58:08.142+0530  INFO --- [tainer-C-1] o.e.t.k.KafkaTemplateLoggingInterceptors --  : Received message from topic: save-property-registry, partition: save-property-registry, with key: null 
+2026-05-21 17:58:08.146+0530  INFO --- [tainer-C-1] o.e.infra.persist.utils.Utils            --  : Version present in API request is: 1.0 
+2026-05-21 17:58:08.146+0530  INFO --- [tainer-C-1] o.e.i.p.service.PersistService           --  : 1 applicable configs found! 
+2026-05-21 17:58:08.146+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_pt_property_audit (audituuid, propertyid, property, auditcreatedtime) VALUES ((select nextval('seq_eg_pt_registry_audit')), ?, ?, (SELECT extract(epoch from now()))); 
+2026-05-21 17:58:08.150+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 1 row(s) to DB! 
+2026-05-21 17:58:08.152+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_pt_property (id, propertyid, tenantid, surveyid, accountid, oldpropertyid, status, acknowldgementnumber, propertytype, ownershipcategory, usagecategory, creationreason, nooffloors, landarea, superbuiltuparea, linkedproperties, source,  channel, createdby, createdtime, lastmodifiedby, lastmodifiedtime, additionaldetails) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); 
+2026-05-21 17:58:08.161+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 1 row(s) to DB! 
+2026-05-21 17:58:08.162+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_pt_owner(ownerinfouuid, tenantid, propertyid, userid, status, isprimaryowner, ownertype, ownershippercentage, institutionid, relationship, createdby, createdtime, lastmodifiedby, lastmodifiedtime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); 
+2026-05-21 17:58:08.167+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 1 row(s) to DB! 
+2026-05-21 17:58:08.168+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_pt_address(tenantid, id, propertyid, doorno, plotno, buildingname, street, landmark, city, pincode, locality, district, region, state, country, latitude, longitude, createdby, createdtime, lastmodifiedby, lastmodifiedtime, additionaldetails) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); 
+2026-05-21 17:58:08.185+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 1 row(s) to DB! 
+2026-05-21 17:58:08.190+0530  INFO --- [tainer-C-1] o.e.t.k.KafkaTemplateLoggingInterceptors --  : Sending message to topic: process-audit-records, partition: null with key: null . 
+2026-05-21 18:02:04.768+0530  INFO --- [tainer-C-1] o.e.t.k.KafkaTemplateLoggingInterceptors --  : Received message from topic: save-property-registry, partition: save-property-registry, with key: null 
+2026-05-21 18:02:05.000+0530  INFO --- [tainer-C-1] o.e.infra.persist.utils.Utils            --  : Version present in API request is: 1.0 
+2026-05-21 18:02:05.015+0530  INFO --- [tainer-C-1] o.e.i.p.service.PersistService           --  : 1 applicable configs found! 
+2026-05-21 18:02:05.023+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_pt_property_audit (audituuid, propertyid, property, auditcreatedtime) VALUES ((select nextval('seq_eg_pt_registry_audit')), ?, ?, (SELECT extract(epoch from now()))); 
+2026-05-21 18:02:05.113+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 1 row(s) to DB! 
+2026-05-21 18:02:05.115+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_pt_property (id, propertyid, tenantid, surveyid, accountid, oldpropertyid, status, acknowldgementnumber, propertytype, ownershipcategory, usagecategory, creationreason, nooffloors, landarea, superbuiltuparea, linkedproperties, source,  channel, createdby, createdtime, lastmodifiedby, lastmodifiedtime, additionaldetails) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); 
+2026-05-21 18:02:05.138+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 1 row(s) to DB! 
+2026-05-21 18:02:05.141+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_pt_owner(ownerinfouuid, tenantid, propertyid, userid, status, isprimaryowner, ownertype, ownershippercentage, institutionid, relationship, createdby, createdtime, lastmodifiedby, lastmodifiedtime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); 
+2026-05-21 18:02:05.162+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 1 row(s) to DB! 
+2026-05-21 18:02:05.164+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_pt_address(tenantid, id, propertyid, doorno, plotno, buildingname, street, landmark, city, pincode, locality, district, region, state, country, latitude, longitude, createdby, createdtime, lastmodifiedby, lastmodifiedtime, additionaldetails) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); 
+2026-05-21 18:02:05.190+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 1 row(s) to DB! 
+2026-05-21 18:02:05.205+0530  INFO --- [tainer-C-1] o.e.t.k.KafkaTemplateLoggingInterceptors --  : Sending message to topic: process-audit-records, partition: null with key: null . 
+2026-05-21 18:03:15.036+0530  INFO --- [tainer-C-1] o.e.t.k.KafkaTemplateLoggingInterceptors --  : Received message from topic: save-property-registry, partition: save-property-registry, with key: null 
+2026-05-21 18:03:15.043+0530  INFO --- [tainer-C-1] o.e.infra.persist.utils.Utils            --  : Version present in API request is: 1.0 
+2026-05-21 18:03:15.044+0530  INFO --- [tainer-C-1] o.e.i.p.service.PersistService           --  : 1 applicable configs found! 
+2026-05-21 18:03:15.044+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_pt_property_audit (audituuid, propertyid, property, auditcreatedtime) VALUES ((select nextval('seq_eg_pt_registry_audit')), ?, ?, (SELECT extract(epoch from now()))); 
+2026-05-21 18:03:15.053+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 1 row(s) to DB! 
+2026-05-21 18:03:15.054+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_pt_property (id, propertyid, tenantid, surveyid, accountid, oldpropertyid, status, acknowldgementnumber, propertytype, ownershipcategory, usagecategory, creationreason, nooffloors, landarea, superbuiltuparea, linkedproperties, source,  channel, createdby, createdtime, lastmodifiedby, lastmodifiedtime, additionaldetails) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); 
+2026-05-21 18:03:15.065+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 1 row(s) to DB! 
+2026-05-21 18:03:15.065+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_pt_owner(ownerinfouuid, tenantid, propertyid, userid, status, isprimaryowner, ownertype, ownershippercentage, institutionid, relationship, createdby, createdtime, lastmodifiedby, lastmodifiedtime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); 
+2026-05-21 18:03:15.073+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 1 row(s) to DB! 
+2026-05-21 18:03:15.074+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_pt_address(tenantid, id, propertyid, doorno, plotno, buildingname, street, landmark, city, pincode, locality, district, region, state, country, latitude, longitude, createdby, createdtime, lastmodifiedby, lastmodifiedtime, additionaldetails) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); 
+2026-05-21 18:03:15.091+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 1 row(s) to DB! 
+2026-05-21 18:03:15.096+0530  INFO --- [tainer-C-1] o.e.t.k.KafkaTemplateLoggingInterceptors --  : Sending message to topic: process-audit-records, partition: null with key: null . 
+2026-05-21 18:04:22.520+0530  INFO --- [tainer-C-1] o.e.t.k.KafkaTemplateLoggingInterceptors --  : Received message from topic: save-property-registry, partition: save-property-registry, with key: null 
+2026-05-21 18:04:22.529+0530  INFO --- [tainer-C-1] o.e.infra.persist.utils.Utils            --  : Version present in API request is: 1.0 
+2026-05-21 18:04:22.529+0530  INFO --- [tainer-C-1] o.e.i.p.service.PersistService           --  : 1 applicable configs found! 
+2026-05-21 18:04:22.529+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_pt_property_audit (audituuid, propertyid, property, auditcreatedtime) VALUES ((select nextval('seq_eg_pt_registry_audit')), ?, ?, (SELECT extract(epoch from now()))); 
+2026-05-21 18:04:22.535+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 1 row(s) to DB! 
+2026-05-21 18:04:22.535+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_pt_property (id, propertyid, tenantid, surveyid, accountid, oldpropertyid, status, acknowldgementnumber, propertytype, ownershipcategory, usagecategory, creationreason, nooffloors, landarea, superbuiltuparea, linkedproperties, source,  channel, createdby, createdtime, lastmodifiedby, lastmodifiedtime, additionaldetails) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); 
+2026-05-21 18:04:22.545+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 1 row(s) to DB! 
+2026-05-21 18:04:22.545+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_pt_owner(ownerinfouuid, tenantid, propertyid, userid, status, isprimaryowner, ownertype, ownershippercentage, institutionid, relationship, createdby, createdtime, lastmodifiedby, lastmodifiedtime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); 
+2026-05-21 18:04:22.553+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 1 row(s) to DB! 
+2026-05-21 18:04:22.555+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_pt_address(tenantid, id, propertyid, doorno, plotno, buildingname, street, landmark, city, pincode, locality, district, region, state, country, latitude, longitude, createdby, createdtime, lastmodifiedby, lastmodifiedtime, additionaldetails) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); 
+2026-05-21 18:04:22.576+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 1 row(s) to DB! 
+2026-05-21 18:04:22.582+0530  INFO --- [tainer-C-1] o.e.t.k.KafkaTemplateLoggingInterceptors --  : Sending message to topic: process-audit-records, partition: null with key: null . 
+2026-05-21 18:04:26.244+0530  INFO --- [tainer-C-1] o.e.t.k.KafkaTemplateLoggingInterceptors --  : Received message from topic: save-wf-transitions, partition: save-wf-transitions, with key: null 
+2026-05-21 18:04:26.248+0530  INFO --- [tainer-C-1] o.e.infra.persist.utils.Utils            --  : Version present in API request is: 1.0 
+2026-05-21 18:04:26.249+0530  INFO --- [tainer-C-1] o.e.i.p.service.PersistService           --  : 1 applicable configs found! 
+2026-05-21 18:04:26.249+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Executing query : INSERT INTO eg_wf_processinstance_v2( id,tenantid,businessService,businessId,moduleName,action,status,comment, assigner, stateSla,businessServiceSla, previousStatus, createdby, lastmodifiedby, createdtime, lastmodifiedtime, rating) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); 
+2026-05-21 18:04:26.284+0530  INFO --- [tainer-C-1] o.e.i.p.r.PersistRepository              --  : Persisted 1 row(s) to DB! 
+2026-05-21 18:04:26.292+0530  INFO --- [tainer-C-1] o.e.t.k.KafkaTemplateLoggingInterceptors --  : Sending message to topic: process-audit-records, partition: null with key: null . 

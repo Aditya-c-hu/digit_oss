@@ -1,0 +1,286 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.2.6.RELEASE)
+
+2026-05-21 17:50:20.669+0530  INFO --- [      main] o.e.c.CollectionServicesApplication      --  : Starting CollectionServicesApplication v1.1.7-SNAPSHOT on LAPTOP-Q2EQEE4F with PID 32440 (C:\Users\Aditya\Downloads\DIGIT-OSS-master\municipal-services-go\collection-services\target\collection-services-1.1.7-SNAPSHOT.jar started by Aditya in C:\Users\Aditya\Downloads\DIGIT-OSS-master\municipal-services-go\local-deploy) 
+2026-05-21 17:50:20.691+0530 DEBUG --- [      main] o.e.c.CollectionServicesApplication      --  : Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE 
+2026-05-21 17:50:20.692+0530  INFO --- [      main] o.e.c.CollectionServicesApplication      --  : No active profile set, falling back to default profiles: default 
+2026-05-21 17:50:22.594+0530  INFO --- [      main] o.s.c.a.ConfigurationClassParser         --  : Properties location [classpath:config/application-config.properties] not resolvable: class path resource [config/application-config.properties] cannot be opened because it does not exist 
+2026-05-21 17:50:31.517+0530  INFO --- [      main] o.s.b.w.e.t.TomcatWebServer              --  : Tomcat initialized with port(s): 8203 (http) 
+2026-05-21 17:50:31.553+0530  INFO --- [      main] o.a.c.core.StandardService               --  : Starting service [Tomcat] 
+2026-05-21 17:50:31.555+0530  INFO --- [      main] o.a.c.core.StandardEngine                --  : Starting Servlet engine: [Apache Tomcat/9.0.33] 
+2026-05-21 17:50:31.773+0530  INFO --- [      main] o.a.c.c.C.[.[.[/collection-services]     --  : Initializing Spring embedded WebApplicationContext 
+2026-05-21 17:50:31.778+0530  INFO --- [      main] o.s.web.context.ContextLoader            --  : Root WebApplicationContext: initialization completed in 10892 ms 
+2026-05-21 17:50:31.967+0530  INFO --- [      main] o.c.s.w.s.ServerTracingAutoConfiguration --  : Creating FilterRegistrationBean bean with TracingFilter mapped to [/*], skip pattern is "/api-docs.*|/autoconfig|/configprops|/dump|/health|/info|/metrics.*|/mappings|/swagger.*|.*.png|.*.css|.*.js|.*.html|/favicon.ico|/hystrix.stream|/prometheus|/manage/*" 
+2026-05-21 17:50:34.989+0530  INFO --- [      main] o.c.s.w.s.ServerTracingAutoConfiguration --  : Creating WebMvcConfigurerAdapter bean with class io.opentracing.contrib.spring.web.interceptor.TracingHandlerInterceptor 
+2026-05-21 17:50:35.096+0530  INFO --- [      main] o.s.s.c.ThreadPoolTaskExecutor           --  : Initializing ExecutorService 'applicationTaskExecutor' 
+2026-05-21 17:50:35.966+0530  INFO --- [      main] o.s.b.a.e.w.EndpointLinksResolver        --  : Exposing 2 endpoint(s) beneath base path '/actuator' 
+2026-05-21 17:50:36.181+0530  INFO --- [      main] o.a.k.c.c.ConsumerConfig                 --  : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 100
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = default
+	client.id = 
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = collection-persist
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = [org.egov.tracer.kafka.KafkaTemplateLoggingInterceptors]
+	internal.leave.group.on.close = true
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	session.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = https
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.egov.collection.consumer.HashMapDeserializer
+ 
+2026-05-21 17:50:36.432+0530  INFO --- [      main] o.a.k.c.utils.AppInfoParser              --  : Kafka version: 2.3.1 
+2026-05-21 17:50:36.433+0530  INFO --- [      main] o.a.k.c.utils.AppInfoParser              --  : Kafka commitId: 18a913733fb71c01 
+2026-05-21 17:50:36.433+0530  INFO --- [      main] o.a.k.c.utils.AppInfoParser              --  : Kafka startTimeMs: 1779366036430 
+2026-05-21 17:50:36.436+0530  INFO --- [      main] o.a.k.c.consumer.KafkaConsumer           --  : [Consumer clientId=consumer-1, groupId=collection-persist] Subscribed to topic(s): egov.collectionmasters.bankaccountservicemapping-create 
+2026-05-21 17:50:36.441+0530  INFO --- [      main] o.s.s.c.ThreadPoolTaskScheduler          --  : Initializing ExecutorService 
+2026-05-21 17:50:36.453+0530  INFO --- [      main] o.a.k.c.c.ConsumerConfig                 --  : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 100
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = default
+	client.id = 
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = collection-persist
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = [org.egov.tracer.kafka.KafkaTemplateLoggingInterceptors]
+	internal.leave.group.on.close = true
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	session.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = https
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.egov.collection.consumer.HashMapDeserializer
+ 
+2026-05-21 17:50:36.464+0530  INFO --- [      main] o.a.k.c.utils.AppInfoParser              --  : Kafka version: 2.3.1 
+2026-05-21 17:50:36.465+0530  INFO --- [      main] o.a.k.c.utils.AppInfoParser              --  : Kafka commitId: 18a913733fb71c01 
+2026-05-21 17:50:36.466+0530  INFO --- [      main] o.a.k.c.utils.AppInfoParser              --  : Kafka startTimeMs: 1779366036464 
+2026-05-21 17:50:36.466+0530  INFO --- [      main] o.a.k.c.consumer.KafkaConsumer           --  : [Consumer clientId=consumer-2, groupId=collection-persist] Subscribed to topic(s): PDF_GEN_CREATE 
+2026-05-21 17:50:36.466+0530  INFO --- [      main] o.s.s.c.ThreadPoolTaskScheduler          --  : Initializing ExecutorService 
+2026-05-21 17:50:36.469+0530  INFO --- [      main] o.a.k.c.c.ConsumerConfig                 --  : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 100
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = default
+	client.id = 
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = collection-persist
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = [org.egov.tracer.kafka.KafkaTemplateLoggingInterceptors]
+	internal.leave.group.on.close = true
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	session.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = https
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.egov.collection.consumer.HashMapDeserializer
+ 
+2026-05-21 17:50:36.481+0530  INFO --- [      main] o.a.k.c.utils.AppInfoParser              --  : Kafka version: 2.3.1 
+2026-05-21 17:50:36.482+0530  INFO --- [      main] o.a.k.c.utils.AppInfoParser              --  : Kafka commitId: 18a913733fb71c01 
+2026-05-21 17:50:36.482+0530  INFO --- [      main] o.a.k.c.utils.AppInfoParser              --  : Kafka startTimeMs: 1779366036481 
+2026-05-21 17:50:36.482+0530  INFO --- [      main] o.a.k.c.consumer.KafkaConsumer           --  : [Consumer clientId=consumer-3, groupId=collection-persist] Subscribed to topic(s): egov.collection.payment-create, coll.payment.receiptlink.topic.name 
+2026-05-21 17:50:36.482+0530  INFO --- [      main] o.s.s.c.ThreadPoolTaskScheduler          --  : Initializing ExecutorService 
+2026-05-21 17:50:36.536+0530  INFO --- [      main] o.s.b.w.e.t.TomcatWebServer              --  : Tomcat started on port(s): 8203 (http) with context path '/collection-services' 
+2026-05-21 17:50:36.542+0530  INFO --- [      main] o.e.c.CollectionServicesApplication      --  : Started CollectionServicesApplication in 18.157 seconds (JVM running for 20.543) 
+2026-05-21 17:50:36.811+0530  INFO --- [er#0-0-C-1] o.a.kafka.clients.Metadata               --  : [Consumer clientId=consumer-2, groupId=collection-persist] Cluster ID: Some(MkU3OEVBNTcwNTJENDM2Qk) 
+2026-05-21 17:50:36.811+0530  INFO --- [er#1-0-C-1] o.a.kafka.clients.Metadata               --  : [Consumer clientId=consumer-3, groupId=collection-persist] Cluster ID: Some(MkU3OEVBNTcwNTJENDM2Qk) 
+2026-05-21 17:50:36.811+0530  INFO --- [er#2-0-C-1] o.a.kafka.clients.Metadata               --  : [Consumer clientId=consumer-1, groupId=collection-persist] Cluster ID: Some(MkU3OEVBNTcwNTJENDM2Qk) 
+2026-05-21 17:50:36.813+0530  INFO --- [er#1-0-C-1] o.a.k.c.c.i.AbstractCoordinator          --  : [Consumer clientId=consumer-3, groupId=collection-persist] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null) 
+2026-05-21 17:50:36.813+0530  INFO --- [er#0-0-C-1] o.a.k.c.c.i.AbstractCoordinator          --  : [Consumer clientId=consumer-2, groupId=collection-persist] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null) 
+2026-05-21 17:50:36.813+0530  INFO --- [er#2-0-C-1] o.a.k.c.c.i.AbstractCoordinator          --  : [Consumer clientId=consumer-1, groupId=collection-persist] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null) 
+2026-05-21 17:50:36.822+0530  INFO --- [er#2-0-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=collection-persist] Revoking previously assigned partitions [] 
+2026-05-21 17:50:36.822+0530  INFO --- [er#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-2, groupId=collection-persist] Revoking previously assigned partitions [] 
+2026-05-21 17:50:36.822+0530  INFO --- [er#1-0-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-3, groupId=collection-persist] Revoking previously assigned partitions [] 
+2026-05-21 17:50:36.823+0530  INFO --- [er#2-0-C-1] o.s.k.l.KafkaMessageListenerContainer    --  : collection-persist: partitions revoked: [] 
+2026-05-21 17:50:36.823+0530  INFO --- [er#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    --  : collection-persist: partitions revoked: [] 
+2026-05-21 17:50:36.823+0530  INFO --- [er#1-0-C-1] o.s.k.l.KafkaMessageListenerContainer    --  : collection-persist: partitions revoked: [] 
+2026-05-21 17:50:36.823+0530  INFO --- [er#0-0-C-1] o.a.k.c.c.i.AbstractCoordinator          --  : [Consumer clientId=consumer-2, groupId=collection-persist] (Re-)joining group 
+2026-05-21 17:50:36.823+0530  INFO --- [er#1-0-C-1] o.a.k.c.c.i.AbstractCoordinator          --  : [Consumer clientId=consumer-3, groupId=collection-persist] (Re-)joining group 
+2026-05-21 17:50:36.823+0530  INFO --- [er#2-0-C-1] o.a.k.c.c.i.AbstractCoordinator          --  : [Consumer clientId=consumer-1, groupId=collection-persist] (Re-)joining group 
+2026-05-21 17:50:36.846+0530  INFO --- [er#2-0-C-1] o.a.k.c.c.i.AbstractCoordinator          --  : [Consumer clientId=consumer-1, groupId=collection-persist] (Re-)joining group 
+2026-05-21 17:50:36.846+0530  INFO --- [er#0-0-C-1] o.a.k.c.c.i.AbstractCoordinator          --  : [Consumer clientId=consumer-2, groupId=collection-persist] (Re-)joining group 
+2026-05-21 17:50:36.846+0530  INFO --- [er#1-0-C-1] o.a.k.c.c.i.AbstractCoordinator          --  : [Consumer clientId=consumer-3, groupId=collection-persist] (Re-)joining group 
+2026-05-21 17:50:39.864+0530  INFO --- [er#1-0-C-1] o.a.k.c.c.i.AbstractCoordinator          --  : [Consumer clientId=consumer-3, groupId=collection-persist] Successfully joined group with generation 37 
+2026-05-21 17:50:39.864+0530  INFO --- [er#0-0-C-1] o.a.k.c.c.i.AbstractCoordinator          --  : [Consumer clientId=consumer-2, groupId=collection-persist] Successfully joined group with generation 37 
+2026-05-21 17:50:39.864+0530  INFO --- [er#2-0-C-1] o.a.k.c.c.i.AbstractCoordinator          --  : [Consumer clientId=consumer-1, groupId=collection-persist] Successfully joined group with generation 37 
+2026-05-21 17:50:39.880+0530  INFO --- [er#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-2, groupId=collection-persist] Setting newly assigned partitions: PDF_GEN_CREATE-0 
+2026-05-21 17:50:39.880+0530  INFO --- [er#2-0-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=collection-persist] Setting newly assigned partitions: egov.collectionmasters.bankaccountservicemapping-create-0 
+2026-05-21 17:50:39.880+0530  INFO --- [er#1-0-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-3, groupId=collection-persist] Setting newly assigned partitions: egov.collection.payment-create-0, coll.payment.receiptlink.topic.name-0 
+2026-05-21 17:50:39.897+0530  INFO --- [er#0-0-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-2, groupId=collection-persist] Setting offset for partition PDF_GEN_CREATE-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=localhost:9092 (id: 1 rack: null), epoch=14}} 
+2026-05-21 17:50:39.897+0530  INFO --- [er#2-0-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-1, groupId=collection-persist] Setting offset for partition egov.collectionmasters.bankaccountservicemapping-create-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=localhost:9092 (id: 1 rack: null), epoch=10}} 
+2026-05-21 17:50:39.897+0530  INFO --- [er#1-0-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-3, groupId=collection-persist] Setting offset for partition egov.collection.payment-create-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=localhost:9092 (id: 1 rack: null), epoch=22}} 
+2026-05-21 17:50:39.899+0530  INFO --- [er#1-0-C-1] o.a.k.c.c.i.ConsumerCoordinator          --  : [Consumer clientId=consumer-3, groupId=collection-persist] Setting offset for partition coll.payment.receiptlink.topic.name-0 to the committed offset FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=localhost:9092 (id: 1 rack: null), epoch=10}} 
+2026-05-21 17:50:39.901+0530  INFO --- [er#2-0-C-1] o.s.k.l.KafkaMessageListenerContainer    --  : collection-persist: partitions assigned: [egov.collectionmasters.bankaccountservicemapping-create-0] 
+2026-05-21 17:50:39.901+0530  INFO --- [er#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    --  : collection-persist: partitions assigned: [PDF_GEN_CREATE-0] 
+2026-05-21 17:50:39.901+0530  INFO --- [er#1-0-C-1] o.s.k.l.KafkaMessageListenerContainer    --  : collection-persist: partitions assigned: [egov.collection.payment-create-0, coll.payment.receiptlink.topic.name-0] 
+2026-05-21 17:51:12.726+0530  INFO --- [203-exec-3] o.a.c.c.C.[.[.[/collection-services]     --  : Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2026-05-21 17:51:12.726+0530  INFO --- [203-exec-3] o.s.w.s.DispatcherServlet                --  : Initializing Servlet 'dispatcherServlet' 
+2026-05-21 17:51:12.746+0530  INFO --- [203-exec-3] o.s.w.s.DispatcherServlet                --  : Completed initialization in 20 ms 

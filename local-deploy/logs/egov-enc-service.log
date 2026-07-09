@@ -1,0 +1,187 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::       (v2.2.13.RELEASE)
+
+2026-05-21 17:49:37.170+0530  INFO --- [      main] org.egov.enc.Main                        --  : Starting Main v1.1.4 on LAPTOP-Q2EQEE4F with PID 24052 (C:\Users\Aditya\Downloads\DIGIT-OSS-master\municipal-services-go\egov-enc-service\target\egov-enc-service-1.1.4.jar started by Aditya in C:\Users\Aditya\Downloads\DIGIT-OSS-master\municipal-services-go\local-deploy) 
+2026-05-21 17:49:37.190+0530  INFO --- [      main] org.egov.enc.Main                        --  : No active profile set, falling back to default profiles: default 
+2026-05-21 17:49:49.226+0530  INFO --- [      main] o.s.b.w.e.t.TomcatWebServer              --  : Tomcat initialized with port(s): 8089 (http) 
+2026-05-21 17:49:49.261+0530  INFO --- [      main] o.a.c.core.StandardService               --  : Starting service [Tomcat] 
+2026-05-21 17:49:49.262+0530  INFO --- [      main] o.a.c.core.StandardEngine                --  : Starting Servlet engine: [Apache Tomcat/9.0.41] 
+2026-05-21 17:49:49.552+0530  INFO --- [      main] o.a.c.c.C.[.[.[/egov-enc-service]        --  : Initializing Spring embedded WebApplicationContext 
+2026-05-21 17:49:49.553+0530  INFO --- [      main] w.s.c.ServletWebServerApplicationContext --  : Root WebApplicationContext: initialization completed in 12005 ms 
+2026-05-21 17:49:50.223+0530  INFO --- [      main] o.c.s.w.s.ServerTracingAutoConfiguration --  : Creating FilterRegistrationBean bean with TracingFilter mapped to [/*], skip pattern is "/api-docs.*|/autoconfig|/configprops|/dump|/health|/info|/metrics.*|/mappings|/swagger.*|.*\.png|.*\.css|.*\.js|.*\.html|/favicon.ico|/hystrix.stream" 
+2026-05-21 17:49:57.359+0530  INFO --- [      main] o.c.s.w.s.ServerTracingAutoConfiguration --  : Creating WebMvcConfigurerAdapter bean with class io.opentracing.contrib.spring.web.interceptor.TracingHandlerInterceptor 
+2026-05-21 17:49:58.455+0530  INFO --- [      main] o.s.s.c.ThreadPoolTaskExecutor           --  : Initializing ExecutorService 'applicationTaskExecutor' 
+2026-05-21 17:50:02.404+0530  INFO --- [      main] o.s.b.a.e.w.EndpointLinksResolver        --  : Exposing 2 endpoint(s) beneath base path '/actuator' 
+2026-05-21 17:50:02.620+0530  INFO --- [      main] o.s.b.w.e.t.TomcatWebServer              --  : Tomcat started on port(s): 8089 (http) with context path '/egov-enc-service' 
+2026-05-21 17:50:02.626+0530  INFO --- [      main] org.egov.enc.Main                        --  : Started Main in 27.941 seconds (JVM running for 29.952) 
+2026-05-21 17:50:02.834+0530  INFO --- [      main] c.z.hikari.HikariDataSource              --  : HikariPool-1 - Starting... 
+2026-05-21 17:50:03.611+0530  INFO --- [      main] c.z.hikari.HikariDataSource              --  : HikariPool-1 - Start completed. 
+2026-05-21 17:50:03.850+0530  INFO --- [      main] i.j.i.r.LoggingReporter                  --  : Span reported: d42cbdb68eb6cf20:d42cbdb68eb6cf20:0:1 - Query 
+2026-05-21 17:50:03.887+0530  INFO --- [      main] i.j.i.r.LoggingReporter                  --  : Span reported: badb04dd84e3460e:badb04dd84e3460e:0:1 - Query 
+2026-05-21 17:50:03.911+0530  INFO --- [      main] i.j.i.r.LoggingReporter                  --  : Span reported: 4e785f2bdf275598:4e785f2bdf275598:0:1 - Query 
+2026-05-21 17:50:04.047+0530  INFO --- [      main] i.j.i.r.LoggingReporter                  --  : Span reported: 156d45f31c14a4c9:156d45f31c14a4c9:0:1 - Query 
+2026-05-21 17:50:04.051+0530  INFO --- [      main] i.j.i.r.LoggingReporter                  --  : Span reported: d529c4ad25ea4c53:d529c4ad25ea4c53:0:1 - Query 
+2026-05-21 17:50:04.064+0530  INFO --- [      main] i.j.i.r.LoggingReporter                  --  : Span reported: fd8569b571c1c2cd:fd8569b571c1c2cd:0:1 - Query 
+2026-05-21 17:51:18.673+0530  INFO --- [089-exec-4] o.a.c.c.C.[.[.[/egov-enc-service]        --  : Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2026-05-21 17:51:18.676+0530  INFO --- [089-exec-4] o.s.w.s.DispatcherServlet                --  : Initializing Servlet 'dispatcherServlet' 
+2026-05-21 17:51:18.730+0530  INFO --- [089-exec-4] o.s.w.s.DispatcherServlet                --  : Completed initialization in 53 ms 
+2026-05-21 17:51:19.370+0530  INFO --- [089-exec-4] i.j.i.r.LoggingReporter                  --  : Span reported: 3bb1e1174b4f1c81:3bb1e1174b4f1c81:0:1 - cryptoEncryptPost 
+2026-05-21 17:51:19.716+0530  INFO --- [089-exec-1] i.j.i.r.LoggingReporter                  --  : Span reported: c65405951ec323d1:c65405951ec323d1:0:1 - cryptoDecryptPost 
+2026-05-21 17:51:20.914+0530  INFO --- [089-exec-6] i.j.i.r.LoggingReporter                  --  : Span reported: 5008b3f91a77ca71:5008b3f91a77ca71:0:1 - cryptoEncryptPost 
+2026-05-21 17:51:21.275+0530  INFO --- [089-exec-7] i.j.i.r.LoggingReporter                  --  : Span reported: 96dfb5c1b1176aa8:96dfb5c1b1176aa8:0:1 - cryptoDecryptPost 
+2026-05-21 17:51:21.344+0530  INFO --- [089-exec-5] i.j.i.r.LoggingReporter                  --  : Span reported: 95c2914680d4dfb4:95c2914680d4dfb4:0:1 - cryptoEncryptPost 
+2026-05-21 17:51:21.546+0530  INFO --- [89-exec-10] i.j.i.r.LoggingReporter                  --  : Span reported: c6998718183e315a:c6998718183e315a:0:1 - cryptoDecryptPost 
+2026-05-21 17:51:22.104+0530  INFO --- [089-exec-2] i.j.i.r.LoggingReporter                  --  : Span reported: 5f4e2fe1652b1:5f4e2fe1652b1:0:1 - cryptoEncryptPost 
+2026-05-21 17:52:06.418+0530  INFO --- [089-exec-3] i.j.i.r.LoggingReporter                  --  : Span reported: 14015fb73cdfcea:14015fb73cdfcea:0:1 - cryptoEncryptPost 
+2026-05-21 17:52:06.500+0530  INFO --- [089-exec-8] i.j.i.r.LoggingReporter                  --  : Span reported: 1721f248fc1a2d48:1721f248fc1a2d48:0:1 - cryptoEncryptPost 
+2026-05-21 17:52:06.541+0530  INFO --- [089-exec-9] i.j.i.r.LoggingReporter                  --  : Span reported: c3e17c516f296358:c3e17c516f296358:0:1 - cryptoDecryptPost 
+2026-05-21 17:52:06.622+0530  INFO --- [089-exec-4] i.j.i.r.LoggingReporter                  --  : Span reported: 5a30e20d154755fd:5a30e20d154755fd:0:1 - cryptoDecryptPost 
+2026-05-21 17:53:05.579+0530  INFO --- [089-exec-1] i.j.i.r.LoggingReporter                  --  : Span reported: 613766a236a29e88:613766a236a29e88:0:1 - cryptoEncryptPost 
+2026-05-21 17:53:05.622+0530  INFO --- [089-exec-6] i.j.i.r.LoggingReporter                  --  : Span reported: 1dc0ac7d0670eab3:1dc0ac7d0670eab3:0:1 - cryptoDecryptPost 
+2026-05-21 17:53:05.688+0530  INFO --- [089-exec-7] i.j.i.r.LoggingReporter                  --  : Span reported: adfbb02a8fcc9d05:adfbb02a8fcc9d05:0:1 - cryptoEncryptPost 
+2026-05-21 17:53:05.940+0530  INFO --- [089-exec-5] i.j.i.r.LoggingReporter                  --  : Span reported: 4902abadf4a95fb6:4902abadf4a95fb6:0:1 - cryptoDecryptPost 
+2026-05-21 17:53:05.989+0530  INFO --- [89-exec-10] i.j.i.r.LoggingReporter                  --  : Span reported: 82a5f5695a8e7811:82a5f5695a8e7811:0:1 - cryptoEncryptPost 
+2026-05-21 17:53:06.062+0530  INFO --- [089-exec-2] i.j.i.r.LoggingReporter                  --  : Span reported: e222c1f0b9fbd160:e222c1f0b9fbd160:0:1 - cryptoDecryptPost 
+2026-05-21 17:53:09.270+0530  INFO --- [089-exec-3] i.j.i.r.LoggingReporter                  --  : Span reported: 9f04d9804d4334dc:9f04d9804d4334dc:0:1 - cryptoEncryptPost 
+2026-05-21 17:53:09.362+0530  INFO --- [089-exec-8] i.j.i.r.LoggingReporter                  --  : Span reported: 5482fd7b5e2bb164:5482fd7b5e2bb164:0:1 - cryptoEncryptPost 
+2026-05-21 17:53:09.460+0530  INFO --- [089-exec-9] i.j.i.r.LoggingReporter                  --  : Span reported: 8ce0c81d253c433a:8ce0c81d253c433a:0:1 - cryptoDecryptPost 
+2026-05-21 17:53:09.566+0530  INFO --- [089-exec-4] i.j.i.r.LoggingReporter                  --  : Span reported: 1cafb71e031cbf10:1cafb71e031cbf10:0:1 - cryptoDecryptPost 
+2026-05-21 17:54:38.511+0530  INFO --- [089-exec-7] i.j.i.r.LoggingReporter                  --  : Span reported: 58a0a108803cb8a5:58a0a108803cb8a5:0:1 - cryptoEncryptPost 
+2026-05-21 17:54:38.565+0530  INFO --- [089-exec-5] i.j.i.r.LoggingReporter                  --  : Span reported: 6019b35368e4cbd9:6019b35368e4cbd9:0:1 - cryptoDecryptPost 
+2026-05-21 17:54:38.635+0530  INFO --- [89-exec-10] i.j.i.r.LoggingReporter                  --  : Span reported: 253d5570b6cbce79:253d5570b6cbce79:0:1 - cryptoEncryptPost 
+2026-05-21 17:54:38.944+0530  INFO --- [089-exec-2] i.j.i.r.LoggingReporter                  --  : Span reported: 3040ce34270e9d16:3040ce34270e9d16:0:1 - cryptoDecryptPost 
+2026-05-21 17:54:38.973+0530  INFO --- [089-exec-3] i.j.i.r.LoggingReporter                  --  : Span reported: 950fced333603eae:950fced333603eae:0:1 - cryptoEncryptPost 
+2026-05-21 17:54:39.012+0530  INFO --- [089-exec-8] i.j.i.r.LoggingReporter                  --  : Span reported: bf926c8903cfcd7d:bf926c8903cfcd7d:0:1 - cryptoDecryptPost 
+2026-05-21 17:54:42.208+0530  INFO --- [089-exec-9] i.j.i.r.LoggingReporter                  --  : Span reported: 9ab7df11536a5386:9ab7df11536a5386:0:1 - cryptoEncryptPost 
+2026-05-21 17:54:42.258+0530  INFO --- [089-exec-4] i.j.i.r.LoggingReporter                  --  : Span reported: 520d5eddd7393a49:520d5eddd7393a49:0:1 - cryptoEncryptPost 
+2026-05-21 17:54:42.290+0530  INFO --- [089-exec-1] i.j.i.r.LoggingReporter                  --  : Span reported: 6148bdf3e55c210f:6148bdf3e55c210f:0:1 - cryptoDecryptPost 
+2026-05-21 17:54:42.360+0530  INFO --- [089-exec-6] i.j.i.r.LoggingReporter                  --  : Span reported: abf7694afbb35c7f:abf7694afbb35c7f:0:1 - cryptoDecryptPost 
+2026-05-21 17:56:22.773+0530  INFO --- [89-exec-10] i.j.i.r.LoggingReporter                  --  : Span reported: 576a1d7170ccd8ab:576a1d7170ccd8ab:0:1 - cryptoEncryptPost 
+2026-05-21 17:56:22.827+0530  INFO --- [089-exec-2] i.j.i.r.LoggingReporter                  --  : Span reported: 5bc54f6912a32236:5bc54f6912a32236:0:1 - cryptoDecryptPost 
+2026-05-21 17:56:22.884+0530  INFO --- [089-exec-3] i.j.i.r.LoggingReporter                  --  : Span reported: 9a7c2b2b3ff12b37:9a7c2b2b3ff12b37:0:1 - cryptoEncryptPost 
+2026-05-21 17:56:23.139+0530  INFO --- [089-exec-8] i.j.i.r.LoggingReporter                  --  : Span reported: e98fa4e89fd0cd6e:e98fa4e89fd0cd6e:0:1 - cryptoDecryptPost 
+2026-05-21 17:56:23.176+0530  INFO --- [089-exec-9] i.j.i.r.LoggingReporter                  --  : Span reported: 3339af7f722751e0:3339af7f722751e0:0:1 - cryptoEncryptPost 
+2026-05-21 17:56:23.213+0530  INFO --- [089-exec-4] i.j.i.r.LoggingReporter                  --  : Span reported: 88d9d60834e2ee32:88d9d60834e2ee32:0:1 - cryptoDecryptPost 
+2026-05-21 17:56:26.380+0530  INFO --- [089-exec-1] i.j.i.r.LoggingReporter                  --  : Span reported: ddcaa0b197ce5a7c:ddcaa0b197ce5a7c:0:1 - cryptoEncryptPost 
+2026-05-21 17:56:26.439+0530  INFO --- [089-exec-6] i.j.i.r.LoggingReporter                  --  : Span reported: 2871b14756db005:2871b14756db005:0:1 - cryptoEncryptPost 
+2026-05-21 17:56:26.475+0530  INFO --- [089-exec-7] i.j.i.r.LoggingReporter                  --  : Span reported: b27da79fdfb44ad:b27da79fdfb44ad:0:1 - cryptoDecryptPost 
+2026-05-21 17:56:26.553+0530  INFO --- [089-exec-5] i.j.i.r.LoggingReporter                  --  : Span reported: 75aadf29a376d96:75aadf29a376d96:0:1 - cryptoDecryptPost 
+2026-05-21 17:58:07.716+0530  INFO --- [089-exec-3] i.j.i.r.LoggingReporter                  --  : Span reported: 9ec86220aa7888f3:9ec86220aa7888f3:0:1 - cryptoEncryptPost 
+2026-05-21 17:58:07.772+0530  INFO --- [089-exec-8] i.j.i.r.LoggingReporter                  --  : Span reported: f62b783841f4d6f4:f62b783841f4d6f4:0:1 - cryptoDecryptPost 
+2026-05-21 17:58:07.829+0530  INFO --- [089-exec-9] i.j.i.r.LoggingReporter                  --  : Span reported: d1cde0c9a471f36e:d1cde0c9a471f36e:0:1 - cryptoEncryptPost 
+2026-05-21 17:58:08.070+0530  INFO --- [089-exec-4] i.j.i.r.LoggingReporter                  --  : Span reported: d443f5a3cff46f84:d443f5a3cff46f84:0:1 - cryptoDecryptPost 
+2026-05-21 17:58:08.112+0530  INFO --- [089-exec-1] i.j.i.r.LoggingReporter                  --  : Span reported: 9ac5dca91b73c667:9ac5dca91b73c667:0:1 - cryptoEncryptPost 
+2026-05-21 17:58:08.152+0530  INFO --- [089-exec-6] i.j.i.r.LoggingReporter                  --  : Span reported: 81b0810a75dfb971:81b0810a75dfb971:0:1 - cryptoDecryptPost 
+2026-05-21 17:58:11.253+0530  INFO --- [089-exec-7] i.j.i.r.LoggingReporter                  --  : Span reported: 90e92d3add6988e8:90e92d3add6988e8:0:1 - cryptoEncryptPost 
+2026-05-21 17:58:11.294+0530  INFO --- [089-exec-5] i.j.i.r.LoggingReporter                  --  : Span reported: ac52c82479d056e0:ac52c82479d056e0:0:1 - cryptoEncryptPost 
+2026-05-21 17:58:11.330+0530  INFO --- [089-exec-2] i.j.i.r.LoggingReporter                  --  : Span reported: cd9d719a6d92b49e:cd9d719a6d92b49e:0:1 - cryptoDecryptPost 
+2026-05-21 17:58:11.403+0530  INFO --- [89-exec-10] i.j.i.r.LoggingReporter                  --  : Span reported: 2e95df4f70d2c83e:2e95df4f70d2c83e:0:1 - cryptoDecryptPost 
+2026-05-21 18:02:03.474+0530  INFO --- [089-exec-9] i.j.i.r.LoggingReporter                  --  : Span reported: e175aee750193a5f:e175aee750193a5f:0:1 - cryptoEncryptPost 
+2026-05-21 18:02:03.762+0530  INFO --- [089-exec-4] i.j.i.r.LoggingReporter                  --  : Span reported: e9b09e3fa229d156:e9b09e3fa229d156:0:1 - cryptoDecryptPost 
+2026-05-21 18:02:04.039+0530  INFO --- [089-exec-1] i.j.i.r.LoggingReporter                  --  : Span reported: 9979e604ca3abd9e:9979e604ca3abd9e:0:1 - cryptoEncryptPost 
+2026-05-21 18:02:04.335+0530  INFO --- [089-exec-6] i.j.i.r.LoggingReporter                  --  : Span reported: 48e2869972a9011d:48e2869972a9011d:0:1 - cryptoDecryptPost 
+2026-05-21 18:02:04.417+0530  INFO --- [089-exec-7] i.j.i.r.LoggingReporter                  --  : Span reported: 243dbabc3dabe18a:243dbabc3dabe18a:0:1 - cryptoEncryptPost 
+2026-05-21 18:02:04.598+0530  INFO --- [089-exec-5] i.j.i.r.LoggingReporter                  --  : Span reported: 3f7490e75ad1fb71:3f7490e75ad1fb71:0:1 - cryptoDecryptPost 
+2026-05-21 18:02:07.866+0530  INFO --- [089-exec-2] i.j.i.r.LoggingReporter                  --  : Span reported: 9db8c06b232bce3d:9db8c06b232bce3d:0:1 - cryptoEncryptPost 
+2026-05-21 18:02:07.961+0530  INFO --- [89-exec-10] i.j.i.r.LoggingReporter                  --  : Span reported: 4d389750a7e11956:4d389750a7e11956:0:1 - cryptoEncryptPost 
+2026-05-21 18:02:08.002+0530  INFO --- [089-exec-8] i.j.i.r.LoggingReporter                  --  : Span reported: bfa76ae7886aa7ce:bfa76ae7886aa7ce:0:1 - cryptoDecryptPost 
+2026-05-21 18:02:08.098+0530  INFO --- [089-exec-3] i.j.i.r.LoggingReporter                  --  : Span reported: c01ad8295032a3d0:c01ad8295032a3d0:0:1 - cryptoDecryptPost 
+2026-05-21 18:02:08.552+0530  INFO --- [089-exec-9] i.j.i.r.LoggingReporter                  --  : Span reported: d2009a7ac09c5c97:d2009a7ac09c5c97:0:1 - cryptoEncryptPost 
+2026-05-21 18:03:14.648+0530  INFO --- [089-exec-6] i.j.i.r.LoggingReporter                  --  : Span reported: 4e50e7e33ccf4356:4e50e7e33ccf4356:0:1 - cryptoEncryptPost 
+2026-05-21 18:03:14.692+0530  INFO --- [089-exec-7] i.j.i.r.LoggingReporter                  --  : Span reported: 713e67be00bbc916:713e67be00bbc916:0:1 - cryptoDecryptPost 
+2026-05-21 18:03:14.743+0530  INFO --- [089-exec-5] i.j.i.r.LoggingReporter                  --  : Span reported: c7a74f573aa90536:c7a74f573aa90536:0:1 - cryptoEncryptPost 
+2026-05-21 18:03:14.961+0530  INFO --- [089-exec-2] i.j.i.r.LoggingReporter                  --  : Span reported: 9008dbdbfd0f2dc4:9008dbdbfd0f2dc4:0:1 - cryptoDecryptPost 
+2026-05-21 18:03:14.991+0530  INFO --- [89-exec-10] i.j.i.r.LoggingReporter                  --  : Span reported: a31d92e5c1892c52:a31d92e5c1892c52:0:1 - cryptoEncryptPost 
+2026-05-21 18:03:15.030+0530  INFO --- [089-exec-8] i.j.i.r.LoggingReporter                  --  : Span reported: 6b7e47b7de8ba45f:6b7e47b7de8ba45f:0:1 - cryptoDecryptPost 
+2026-05-21 18:03:18.191+0530  INFO --- [089-exec-3] i.j.i.r.LoggingReporter                  --  : Span reported: 91bca99fe7946010:91bca99fe7946010:0:1 - cryptoEncryptPost 
+2026-05-21 18:03:18.246+0530  INFO --- [089-exec-9] i.j.i.r.LoggingReporter                  --  : Span reported: e1837140f4bf980f:e1837140f4bf980f:0:1 - cryptoEncryptPost 
+2026-05-21 18:03:18.273+0530  INFO --- [089-exec-4] i.j.i.r.LoggingReporter                  --  : Span reported: 5327d6138e956993:5327d6138e956993:0:1 - cryptoDecryptPost 
+2026-05-21 18:03:18.343+0530  INFO --- [089-exec-1] i.j.i.r.LoggingReporter                  --  : Span reported: 797a4cb069efbe4f:797a4cb069efbe4f:0:1 - cryptoDecryptPost 
+2026-05-21 18:03:18.480+0530  INFO --- [089-exec-6] i.j.i.r.LoggingReporter                  --  : Span reported: 12bba4eb78752917:12bba4eb78752917:0:1 - cryptoEncryptPost 
+2026-05-21 18:03:18.623+0530  INFO --- [089-exec-7] i.j.i.r.LoggingReporter                  --  : Span reported: 3979be17ae9172f7:3979be17ae9172f7:0:1 - cryptoDecryptPost 
+2026-05-21 18:03:18.642+0530 ERROR --- [089-exec-7] o.a.c.c.C.[.[.[.[dispatcherServlet]      --  : Servlet.service() for servlet [dispatcherServlet] in context with path [/egov-enc-service] threw exception [Request processing failed; nested exception is org.egov.tracer.model.CustomException: EMPLOYEE: Invalid Ciphertext] with root cause 
+
+org.egov.tracer.model.CustomException: EMPLOYEE: Invalid Ciphertext
+	at org.egov.enc.models.Ciphertext.<init>(Ciphertext.java:21)
+	at org.egov.enc.utils.ProcessJSONUtil.processValue(ProcessJSONUtil.java:104)
+	at org.egov.enc.utils.ProcessJSONUtil.processJSONMap(ProcessJSONUtil.java:66)
+	at org.egov.enc.utils.ProcessJSONUtil.processJSONList(ProcessJSONUtil.java:79)
+	at org.egov.enc.utils.ProcessJSONUtil.processJSON(ProcessJSONUtil.java:47)
+	at org.egov.enc.services.EncryptionService.decrypt(EncryptionService.java:47)
+	at org.egov.enc.web.controllers.CryptoApiController.cryptoDecryptPost(CryptoApiController.java:48)
+	at sun.reflect.GeneratedMethodAccessor65.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at io.opentracing.contrib.web.servlet.filter.TracingFilter.doFilter(TracingFilter.java:165)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:750)
+
+2026-05-21 18:03:18.732+0530  INFO --- [089-exec-7] i.j.i.r.LoggingReporter                  --  : Span reported: 3979be17ae9172f7:99e256ea4b494bc0:3979be17ae9172f7:1 - error 
+2026-05-21 18:04:22.103+0530  INFO --- [089-exec-2] i.j.i.r.LoggingReporter                  --  : Span reported: f260b97ec2d16651:f260b97ec2d16651:0:1 - cryptoEncryptPost 
+2026-05-21 18:04:22.170+0530  INFO --- [89-exec-10] i.j.i.r.LoggingReporter                  --  : Span reported: dad9a6e6e6ba4d2c:dad9a6e6e6ba4d2c:0:1 - cryptoDecryptPost 
+2026-05-21 18:04:22.226+0530  INFO --- [089-exec-8] i.j.i.r.LoggingReporter                  --  : Span reported: 322a94fa36b8eb71:322a94fa36b8eb71:0:1 - cryptoEncryptPost 
+2026-05-21 18:04:22.456+0530  INFO --- [089-exec-3] i.j.i.r.LoggingReporter                  --  : Span reported: e14d757f65ccdbfb:e14d757f65ccdbfb:0:1 - cryptoDecryptPost 
+2026-05-21 18:04:22.484+0530  INFO --- [089-exec-9] i.j.i.r.LoggingReporter                  --  : Span reported: a678b3df5ce2ce30:a678b3df5ce2ce30:0:1 - cryptoEncryptPost 
+2026-05-21 18:04:22.524+0530  INFO --- [089-exec-4] i.j.i.r.LoggingReporter                  --  : Span reported: fe02315c441d17c8:fe02315c441d17c8:0:1 - cryptoDecryptPost 
+2026-05-21 18:04:25.701+0530  INFO --- [089-exec-1] i.j.i.r.LoggingReporter                  --  : Span reported: b8b6b0197a518e8e:b8b6b0197a518e8e:0:1 - cryptoEncryptPost 
+2026-05-21 18:04:25.740+0530  INFO --- [089-exec-6] i.j.i.r.LoggingReporter                  --  : Span reported: 81035d2cad17650d:81035d2cad17650d:0:1 - cryptoEncryptPost 
+2026-05-21 18:04:25.770+0530  INFO --- [089-exec-7] i.j.i.r.LoggingReporter                  --  : Span reported: b7f032177278ff25:b7f032177278ff25:0:1 - cryptoDecryptPost 
+2026-05-21 18:04:25.904+0530  INFO --- [089-exec-5] i.j.i.r.LoggingReporter                  --  : Span reported: 4cbe7f374b80343d:4cbe7f374b80343d:0:1 - cryptoDecryptPost 
+2026-05-21 18:04:26.017+0530  INFO --- [089-exec-2] i.j.i.r.LoggingReporter                  --  : Span reported: 41dc0c38714a78c6:41dc0c38714a78c6:0:1 - cryptoEncryptPost 
+2026-05-21 18:04:26.045+0530  INFO --- [89-exec-10] i.j.i.r.LoggingReporter                  --  : Span reported: c738bdad0b6dbb28:c738bdad0b6dbb28:0:1 - cryptoDecryptPost 
