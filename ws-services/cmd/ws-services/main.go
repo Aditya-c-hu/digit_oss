@@ -110,7 +110,7 @@ func main() {
 
 	gin.SetMode(gin.ReleaseMode)
 	engine := gin.New()
-	engine.Any("/health", func(c *gin.Context) {
+	engine.GET("/health", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{"status": "UP"})
 	})
 	h.Register(engine, cfg.ContextPath)

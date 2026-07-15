@@ -1,0 +1,94 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+main
+server
+app
+bin/
+dist/
+build/
+target/
+*.class
+*.jar
+
+# Test and coverage artifacts
+*.coverage
+*.prof
+coverage.out
+c.out
+
+# Go workspace files
+go.work
+go.work.sum
+
+# Environment variables and secrets
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+*.cert
+*.crt
+secrets/
+!.env.example
+
+# Large archive and backup files (e.g. go service.zip)
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+*.bak
+*.old
+*.orig
+*~
+
+# Logs and runtime databases
+*.log
+logs/
+*.sqlite
+*.sqlite3
+
+# IDE, Editor, and Agent/AI configuration folders
+.agents/
+.codex/
+.claude/
+.gemini/
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Git lock files
+index.lock
+
+# Documentation folder
+docs/
+
+# Document files
+*.pdf
+*.docx
+*.doc
+EGOV_USER_DEPLOYMENT_GUIDE.md
+
+# Scripts not needed for deployment
+fix-postgres.sh
+
+# Monolithic single-container Dockerfile (bundles all 28 services + infra into one image)
+# Keep only docker-compose.yml and service-level deployments/Dockerfile
+/Dockerfile

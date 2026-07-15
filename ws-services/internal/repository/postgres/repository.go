@@ -8,6 +8,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"strconv"
 	"time"
 
 	"github.com/egov/ws-services/internal/domain"
@@ -220,23 +221,26 @@ func (r *WaterRepository) loadConnectionHolders(ctx context.Context, ids []strin
 	if len(ids) == 0 {
 		return out, nil
 	}
-	// holdershippercentage is numeric in the schema.
-	// We coalesce to 0 so we can scan directly into float64.
+	// holdershippercentage is character varying(128) in the schema (Java reads it
+	// with rs.getDouble, which coerces the text to a double). pgx is stricter, so
+	// the column is COALESCEd to '' and scanned as text, then parsed to float64 —
+	// COALESCE(...,0) here would be a varchar/integer type error in Postgres.
 	rows, err := r.Pool.Query(ctx, `
 		SELECT connectionid, COALESCE(userid,''), COALESCE(status,''), COALESCE(isprimaryholder,false),
-		       COALESCE(connectionholdertype,''), COALESCE(holdershippercentage,0), COALESCE(relationship,'')
+		       COALESCE(connectionholdertype,''), COALESCE(holdershippercentage,''), COALESCE(relationship,'')
 		FROM eg_ws_connectionholder WHERE connectionid = ANY($1)`, ids)
 	if err != nil {
 		return nil, err
 	}
 	defer rows.Close()
 	for rows.Next() {
-		var connID string
+		var connID, holderPct string
 		var o domain.OwnerInfo
 		if err := rows.Scan(&connID, &o.UUID, &o.Status, &o.IsPrimaryHolder,
-			&o.ConnectionHolderType, &o.HolderShipPercentage, &o.Relationship); err != nil {
+			&o.ConnectionHolderType, &holderPct, &o.Relationship); err != nil {
 			return nil, err
 		}
+		o.HolderShipPercentage = parseHolderPercent(holderPct)
 		out[connID] = append(out[connID], o)
 	}
 	return out, rows.Err()
@@ -339,7 +343,7 @@ func (r *WaterRepository) saveConnectionHolders(ctx context.Context, tx pgx.Tx, 
 			VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)
 			ON CONFLICT DO NOTHING`,
 			wc.TenantID, wc.ID, h.UUID, h.Status, h.IsPrimaryHolder,
-			h.ConnectionHolderType, holderPercentNum(h.HolderShipPercentage), h.Relationship,
+			h.ConnectionHolderType, holderPercentText(h.HolderShipPercentage), h.Relationship,
 			wc.AuditDetails.CreatedBy, wc.AuditDetails.CreatedTime,
 			wc.AuditDetails.LastModifiedBy, wc.AuditDetails.LastModifiedTime,
 		)
@@ -368,12 +372,27 @@ func (r *WaterRepository) saveRoadCuttingInfo(ctx context.Context, tx pgx.Tx, wc
 	return nil
 }
 
-// holderPercentNum returns nil for 0 to insert NULL, or the float otherwise.
-func holderPercentNum(v float64) *float64 {
+// holderPercentText renders the holder-ship percentage for the varchar(128)
+// column. Zero is stored as empty (the column is nullable text in the schema),
+// otherwise the shortest exact decimal form.
+func holderPercentText(v float64) string {
 	if v == 0 {
-		return nil
+		return ""
 	}
-	return &v
+	return strconv.FormatFloat(v, 'f', -1, 64)
+}
+
+// parseHolderPercent parses the text holder-ship percentage back to a float,
+// mirroring the Java rowmapper's rs.getDouble (blank/non-numeric -> 0).
+func parseHolderPercent(s string) float64 {
+	if s == "" {
+		return 0
+	}
+	v, err := strconv.ParseFloat(s, 64)
+	if err != nil {
+		return 0
+	}
+	return v
 }
 
 func statusOrDefault(s string) string {

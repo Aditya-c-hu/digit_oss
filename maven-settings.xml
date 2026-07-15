@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Maven settings injected at Docker build time.
+  Problem: every eGov pom.xml declares nexus-repo.egovernments.org as the
+  *only* repository, but that host is unreachable.  Maven therefore fails
+  even for standard artifacts (lombok, Spring, etc.) that exist on Central.
+
+  Fix: declare a profile that adds Maven Central *first* and the eGov Nexus
+  repos after it, so standard artifacts resolve from Central while eGov
+  artifacts (tracer, services-common, mdms-client) still attempt Nexus.
+-->
+<settings xmlns="http://maven.apache.org/SETTINGS/1.2.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.2.0
+                              https://maven.apache.org/xsd/settings-1.2.0.xsd">
+
+  <profiles>
+    <profile>
+      <id>central-fallback</id>
+      <repositories>
+        <!-- Maven Central first — always reachable -->
+        <repository>
+          <id>central</id>
+          <name>Maven Central</name>
+          <url>https://repo.maven.apache.org/maven2</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
+        </repository>
+
+        <!-- eGov Nexus repos (may be unreachable, but needed for org.egov.* artifacts) -->
+        <repository>
+          <id>repo.egovernments.org</id>
+          <name>eGov ERP Releases Repository</name>
+          <url>https://nexus-repo.egovernments.org/nexus/content/repositories/releases/</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
+        </repository>
+        <repository>
+          <id>repo.egovernments.org.snapshots</id>
+          <name>eGov ERP Snapshots Repository</name>
+          <url>https://nexus-repo.egovernments.org/nexus/content/repositories/snapshots/</url>
+          <releases><enabled>false</enabled></releases>
+          <snapshots><enabled>true</enabled></snapshots>
+        </repository>
+        <repository>
+          <id>repo.egovernments.org.public</id>
+          <name>eGov Public Repository Group</name>
+          <url>https://nexus-repo.egovernments.org/nexus/content/groups/public/</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>true</enabled></snapshots>
+        </repository>
+      </repositories>
+
+      <pluginRepositories>
+        <!-- Maven Central first — always reachable -->
+        <pluginRepository>
+          <id>central</id>
+          <name>Maven Central</name>
+          <url>https://repo.maven.apache.org/maven2</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
+        </pluginRepository>
+
+        <!-- eGov Nexus repos (may be unreachable, but needed for org.egov.* artifacts) -->
+        <pluginRepository>
+          <id>repo.egovernments.org</id>
+          <name>eGov ERP Releases Repository</name>
+          <url>https://nexus-repo.egovernments.org/nexus/content/repositories/releases/</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>false</enabled></snapshots>
+        </pluginRepository>
+        <pluginRepository>
+          <id>repo.egovernments.org.snapshots</id>
+          <name>eGov ERP Snapshots Repository</name>
+          <url>https://nexus-repo.egovernments.org/nexus/content/repositories/snapshots/</url>
+          <releases><enabled>false</enabled></releases>
+          <snapshots><enabled>true</enabled></snapshots>
+        </pluginRepository>
+        <pluginRepository>
+          <id>repo.egovernments.org.public</id>
+          <name>eGov Public Repository Group</name>
+          <url>https://nexus-repo.egovernments.org/nexus/content/groups/public/</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>true</enabled></snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
+
+  <activeProfiles>
+    <activeProfile>central-fallback</activeProfile>
+  </activeProfiles>
+
+</settings>
