@@ -89,6 +89,3 @@ EGOV_USER_DEPLOYMENT_GUIDE.md
 # Scripts not needed for deployment
 fix-postgres.sh
 
-# Monolithic single-container Dockerfile (bundles all 28 services + infra into one image)
-# Keep only docker-compose.yml and service-level deployments/Dockerfile
-/Dockerfile
